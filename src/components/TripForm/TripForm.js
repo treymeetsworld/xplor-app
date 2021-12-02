@@ -2,6 +2,7 @@ import React, { useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 
+
 const TripForm = (props) => {
 
   const navigate = useNavigate()
@@ -22,7 +23,6 @@ const TripForm = (props) => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      // add something
       
       navigate('/profile')
     } catch (err) {
