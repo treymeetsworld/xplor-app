@@ -21,7 +21,7 @@ const LoginForm = (props) => {
     authService.login(formData)
     .then(() => {
       props.handleSignupOrLogin()
-      navigate('/')
+      navigate('/profile')
     })
     .catch(err => {
       alert('Invalid Credentials')
@@ -58,7 +58,7 @@ const LoginForm = (props) => {
       </div>
       <div>
         <button className="button">Log In</button>
-        <Link to="/">
+        <Link to="/profile">
           <button>Cancel</button>
         </Link>
       </div>
