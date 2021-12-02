@@ -8,11 +8,11 @@ const TripForm = (props) => {
 
   const [formData, setFormData] = useState({
     city: '',
-    tripDate: '',
+    startDate: '',
+    endDate: '',
   })
   
   const handleChange = e => {
-    props.updateMessage('')
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -30,10 +30,10 @@ const TripForm = (props) => {
     }
   }
   
-  const { city, tripDate} = formData
+  const { city, startDate, endDate} = formData
   
   const isFormInvalid = () => {
-    return !(city, tripDate)
+    return !(city, startDate, endDate)
   }
 
   return (
@@ -56,13 +56,24 @@ const TripForm = (props) => {
         />
       </div>
       <div className="inputContainer">
-        <label htmlFor="tripDate" className="label">Trip Date</label>
+        <label htmlFor="startDate" className="label">Start Date</label>
         <input
           type="date"
           autoComplete="off"
-          id="tripDate"
-          value={tripDate}
-          name="tripDate"
+          id="startDate"
+          value={startDate}
+          name="startDate"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="inputContainer">
+        <label htmlFor="endDate" className="label">End Date</label>
+        <input
+          type="date"
+          autoComplete="off"
+          id="endDate"
+          value={endDate}
+          name="endDate"
           onChange={handleChange}
         />
       </div>

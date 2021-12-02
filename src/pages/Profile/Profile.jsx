@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import TripForm from '../../components/TripForm/TripForm'
+
 
 const Profile = ({user}) => {
   return (
