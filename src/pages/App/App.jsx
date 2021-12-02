@@ -32,7 +32,7 @@ const App = () => {
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
 				<Route path='/profile' element={user ? <Profile/> : <Navigate to='/signup' />} />
-				<Route path='/tripForm' element={<TripForm />} />
+				<Route path='/addTrip' element={<TripForm />} />
 			</Routes>
 		</>
 	);
