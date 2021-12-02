@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import styles from './SignupForm.module.css'
 import * as authService from '../../services/authService'
 
 const SignupForm = (props) => {
@@ -41,10 +40,10 @@ const SignupForm = (props) => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className="formContainer"
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>
+      <div className="inputContainer">
+        <label htmlFor="name" className="label">
           Name
         </label>
         <input
@@ -56,8 +55,8 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
+      <div className="inputContainer">
+        <label htmlFor="email" className="label">Email</label>
         <input
           type="text"
           autoComplete="off"
@@ -67,8 +66,8 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
+      <div className="inputContainer">
+        <label htmlFor="password" className="label">Password</label>
         <input
           type="password"
           autoComplete="off"
@@ -78,8 +77,8 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>Confirm Password</label>
+      <div className="inputContainer">
+        <label htmlFor="confirm" className="label">Confirm Password</label>
         <input
           type="password"
           autoComplete="off"
@@ -89,8 +88,8 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>Sign Up</button>
+      <div className="inputContainer">
+        <button disabled={isFormInvalid()} className="button">Sign Up</button>
         <Link to="/">
           <button>Cancel</button>
         </Link>
