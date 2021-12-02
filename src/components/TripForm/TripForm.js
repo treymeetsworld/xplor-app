@@ -1,0 +1,79 @@
+import React, { useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
+
+const TripForm = (props) => {
+
+  const navigate = useNavigate()
+
+  const [formData, setFormData] = useState({
+    city: '',
+    tripDate: '',
+  })
+  
+  const handleChange = e => {
+    props.updateMessage('')
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
+      // add something
+      
+      navigate('/profile')
+    } catch (err) {
+      props.updateMessage(err.message)
+    }
+  }
+  
+  const { city, tripDate} = formData
+  
+  const isFormInvalid = () => {
+    return !(city, tripDate)
+  }
+
+  return (
+    <form
+      autoComplete="off"
+      onSubmit={handleSubmit}
+      className="formContainer"
+    >
+      <div className="inputContainer">
+        <label htmlFor="city" className="label">
+          CITY
+        </label>
+        <input
+          type="text"
+          autoComplete="off"
+          id="city"
+          value={city}
+          name="city"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="inputContainer">
+        <label htmlFor="tripDate" className="label">Trip Date</label>
+        <input
+          type="date"
+          autoComplete="off"
+          id="tripDate"
+          value={tripDate}
+          name="tripDate"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="inputContainer">
+        <button disabled={isFormInvalid()} className="button">Add Trip</button>
+        <Link to="/profile">
+          <button>Cancel</button>
+        </Link>
+      </div>
+    </form>
+  );
+}
+ 
+export default TripForm;
