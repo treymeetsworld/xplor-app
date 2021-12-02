@@ -28,7 +28,8 @@ const hotelSchema = new mongoose.Schema({
 
 const tripSchema = new mongoose.Schema({
     city: String,
-    tripDate: Date,
+    startDate: Date,
+    endDate: Date,
     packList: [packListSchema],
     restaurants: [{ type: mongoose.Schema.Types.ObjectId, ref: "Restaraunts" }],
     attractions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Attractions" }],
