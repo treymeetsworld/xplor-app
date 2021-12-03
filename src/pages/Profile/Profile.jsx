@@ -25,8 +25,10 @@ console.log("my trips", myTrips)
       <div>
         <ul className="trips">
         {myTrips.map(trip => 
-          <li className="trip">
+          <li  key={trip._id} className="trip">
             {trip.city}
+            <Link to='/tripDetails' state={trip}>Trip Details</Link>
+            <button onClick={()=> props.handleDeleteTrip(trip._id)}>Delete Trip</button>
           </li>
         )}
         </ul>
