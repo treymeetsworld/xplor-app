@@ -34,7 +34,8 @@ const tripSchema = new mongoose.Schema({
     restaurants: [{ type: mongoose.Schema.Types.ObjectId, ref: "Restaraunts" }],
     attractions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Attractions" }],
     flights: [flightSchema],
-    hotel: [hotelSchema]
+    hotel: [hotelSchema],
+    tripHolder: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"}
 }, {
     timestamps: true,
 })

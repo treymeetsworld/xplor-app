@@ -23,7 +23,7 @@ const TripForm = (props) => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      
+      props.handleCreateTrip(formData)
       navigate('/profile')
     } catch (err) {
       props.updateMessage(err.message)
