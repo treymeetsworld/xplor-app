@@ -8,6 +8,7 @@ const Profile = ({user}) => {
       </h1>
         {user ? `hello${user}` :""}
         <Link to='/addTrip' >Add trip</Link>
+        <Link to='/search' >search</Link>
     </main>
   )
 }

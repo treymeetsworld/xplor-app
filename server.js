@@ -4,14 +4,22 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
 import cors from 'cors'
+import { createApi } from 'unsplash-js'
+import nodeFetch from 'node-fetch'
 
 import { router as usersRouter } from './routes/users.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as tripsRouter } from './routes/trips.js'
 import { router as restaurantsRouter } from './routes/restaurants.js'
 import { router as attractionsRouter } from './routes/attractions.js'
+import { router as unsplashRouter } from './routes/unsplash.js'
 
 import('./config/database.js')
+
+const serverApi = createApi({
+  accessKey: `${process.env.UN_KEY}`,
+  
+})
 
 const app = express()
 
@@ -25,6 +33,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/trips', tripsRouter)
 app.use('/api/restaurants', restaurantsRouter)
 app.use('/api/attractions', attractionsRouter)
+app.use('/api/unsplash', unsplashRouter)
 
 
 

@@ -6,6 +6,7 @@ import Login from '../Login/Login'
 import Landing from '../Landing/Landing'
 import Users from '../Users/Users'
 import Profile from '../Profile/Profile'
+import Unsplash from '../Unsplash/Unsplash'
 import * as authService from '../../services/authService'
 import TripForm from '../../components/TripForm/TripForm'
 import { createTrip, getTrips, deleteTrip, updateTrip} from '../../services/tripService'
@@ -40,6 +41,7 @@ const App = () => {
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />	
 				<Route path='/profile' element={user ? <Profile/> : <Navigate to='/signup' />} />
 				<Route path='/addTrip' element={<TripForm  handleCreateTrip={handleCreateTrip} />} />
+				<Route path='/search' element={<Unsplash />} />
 			</Routes>
 		</>
 	);
