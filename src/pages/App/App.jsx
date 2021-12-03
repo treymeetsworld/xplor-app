@@ -8,9 +8,11 @@ import Users from '../Users/Users'
 import Profile from '../Profile/Profile'
 import * as authService from '../../services/authService'
 import TripForm from '../../components/TripForm/TripForm'
+import { createTrip, getTrips, deleteTrip, updateTrip} from '../../services/tripService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
+	const [trips, setTrips] = useState([])
 	const navigate = useNavigate()
 
 	const handleLogout = () => {
@@ -23,6 +25,11 @@ const App = () => {
 		setUser(authService.getUser())
 	}
 
+	const handleCreateTrip = tripData => {
+		createTrip(tripData)
+		.then(newTrip => setTrips([...trips, newTrip]))
+	}
+	
 	return (
 		<>
 			<NavBar user={user} handleLogout={handleLogout} />
@@ -30,12 +37,12 @@ const App = () => {
 				<Route path='/' element={<Landing user={user} />} />
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
-				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
+				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} /	
 				<Route path='/profile' element={user ? <Profile/> : <Navigate to='/signup' />} />
-				<Route path='/addTrip' element={<TripForm />} />
+				<Route path='/addTrip' element={<TripForm  handleCreateTrip={handleCreateTrip} />} />
 			</Routes>
 		</>
 	);
 }
- 
+
 export default App;

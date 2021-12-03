@@ -4,8 +4,7 @@ const BASE_URL = '/api/trips'
 function getTrips() {
     return fetch(BASE_URL, {
         headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
-      })
-      .then(res => res.json())
+        .then(res => res.json())
 }
 
 function createTrip(formData) {
