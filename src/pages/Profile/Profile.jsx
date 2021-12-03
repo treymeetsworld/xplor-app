@@ -27,6 +27,7 @@ console.log("my trips", myTrips)
         {myTrips.map(trip => 
           <li className="trip">
             {trip.city}
+            <Link to='/tripDetails' state={trip}>Trip Details</Link>
           </li>
         )}
         </ul>

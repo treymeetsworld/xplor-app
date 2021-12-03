@@ -5,6 +5,7 @@ import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
 import Landing from '../Landing/Landing'
 import Users from '../Users/Users'
+import TripDetails from '../TripDetails/TripDetails'
 import Profile from '../Profile/Profile'
 import * as authService from '../../services/authService'
 import TripForm from '../../components/TripForm/TripForm'
@@ -45,6 +46,7 @@ const App = () => {
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />	
 				<Route path='/profile' element={user ? <Profile user={user} trips={trips}/> : <Navigate to='/signup' />} />
 				<Route path='/addTrip' element={<TripForm  handleCreateTrip={handleCreateTrip} />} />
+				<Route path='/tripDetails' element={<TripDetails />} />
 			</Routes>
 		</>
 	);
