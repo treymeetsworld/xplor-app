@@ -1,8 +1,10 @@
 import { Trip } from '../models/trip.js'
 
 function index(req, res) {
-  // User.find({})
-  // .then(users => res.json(users))
+  Trip.find({})
+  .then(trips => {
+    res.json(trips)
+  })
 }
 
 function create(req, res) {
