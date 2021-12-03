@@ -5,8 +5,9 @@ import TripHeader from '../../components/TripHeader/TripHeader'
 const TripDetails = () => {
   return (
     <>
+      <div>
         <TripHeader />
-        
+      </div>
     </>
   );
 }
