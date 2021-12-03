@@ -1,17 +1,21 @@
 import { Link } from 'react-router-dom'
 import React, { useState , useEffect } from 'react'
-// import { getTrips } from '../../services/tripService'
+import { getTrips } from '../../services/tripService'
+
 
 
 const Profile = (props) => {
 const [myTrips, setMyTrips] = useState([])
 
-const allMyTrips = props.trips.filter(trip => trip.tripHolder === props.user.profile)
-
 useEffect(() => {
-  setMyTrips(allMyTrips)
-},[])
+  getTrips()
+  .then(allTrips => {
+    const allMyTrips = allTrips.filter(trip => trip.tripHolder === props.user.profile)
+    setMyTrips(allMyTrips)
+  })
+}, [])
 
+console.log("my trips", myTrips)
   return (
     <main className="container">
       <h1 className="text">
