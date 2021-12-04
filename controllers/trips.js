@@ -16,7 +16,19 @@ function create(req, res) {
   })
 }
 
+function addPackingItem(req, res) {
+  Trip.findById(req.params.id)
+  .then(trip => {
+    trip.packList.push(req.body)
+    trip.save()
+    .then(tripWithItem => {
+      res.json(tripWithItem)
+    })
+  })
+}
+
 export {
   index,
-  create
+  create,
+  addPackingItem
 }

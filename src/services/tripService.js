@@ -19,6 +19,18 @@ function createTrip(formData) {
   .then(res => res.json())
 }
 
+function addPackingItem(newItemData) {
+  return fetch(`${BASE_URL}/${newItemData.trip}/packingList`,
+  {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newItemData)
+  })
+  .then(res => res.json())
+}
+
 function updateTrip(formData) {
   return fetch(`${BASE_URL}/${formData.id}`, {
     method: 'PATCH',
@@ -43,5 +55,6 @@ export {
   createTrip,
   updateTrip,
   deleteTrip,
+  addPackingItem
 }
 
