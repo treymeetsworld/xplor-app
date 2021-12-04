@@ -9,7 +9,7 @@ import TripDetails from '../TripDetails/TripDetails'
 import Profile from '../Profile/Profile'
 import * as authService from '../../services/authService'
 import TripForm from '../../components/TripForm/TripForm'
-import { createTrip, getTrips, deleteTrip } from '../../services/tripService'
+import { createTrip , getTrips, addPackingItem } from '../../services/tripService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
@@ -35,12 +35,15 @@ const App = () => {
 		createTrip(tripData)
 			.then(newTrip => setTrips([...trips, newTrip]))
 	}
-
-	const handleDeleteTrip = id => {
-		deleteTrip(id)
-			.then(deletedTrip => {
-				setTrips(trips.filter(trip => trip._id !== deletedTrip._id))
-			})
+	
+	const handleAddPackingItem = newItemData => {
+		addPackingItem(newItemData)
+		.then(updatedTripData => {
+			console.log('front-end new trip', updatedTripData)
+			const updatedTrips = trips.map(trip => trip.App_id === updatedTripData._id ? updatedTripData : trip)
+			setTrips(updatedTrips)
+			navigate('/tripDetails', {state: updatedTripData})
+		})
 	}
 
 	return (
@@ -50,10 +53,10 @@ const App = () => {
 				<Route path='/' element={<Landing user={user} />} />
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
-				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
-				<Route path='/profile' element={user ? <Profile user={user} trips={trips} handleDeleteTrip={handleDeleteTrip} /> : <Navigate to='/signup' />} />
-				<Route path='/addTrip' element={<TripForm handleCreateTrip={handleCreateTrip} />} />
-				<Route path='/tripDetails' element={<TripDetails />} />
+				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />	
+				<Route path='/profile' element={user ? <Profile user={user} trips={trips}/> : <Navigate to='/signup' />} />
+				<Route path='/addTrip' element={<TripForm  handleCreateTrip={handleCreateTrip} />} />
+				<Route path='/tripDetails' element={<TripDetails handleAddPackingItem={handleAddPackingItem}/>} />
 			</Routes>
 		</>
 	);

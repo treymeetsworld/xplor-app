@@ -16,15 +16,19 @@ function create(req, res) {
   })
 }
 
-function deleteTrip(req,res) {
-  Trip.findByIdAndDelete(req.params.id)
+function addPackingItem(req, res) {
+  Trip.findById(req.params.id)
   .then(trip => {
-    res.json(trip)
+    trip.packList.push(req.body)
+    trip.save()
+    .then(tripWithItem => {
+      res.json(tripWithItem)
+    })
   })
 }
 
 export {
   index,
   create,
-  deleteTrip as delete
+  addPackingItem
 }
