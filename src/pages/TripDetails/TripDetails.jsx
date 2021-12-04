@@ -3,7 +3,8 @@ import TripHeader from '../../components/TripHeader/TripHeader'
 import PackingList from '../../components/PackingList/PackingList'
 import Hotel from '../../components/Hotel/Hotel'
 import Flight from '../../components/Flight/Flight'
-
+import Restaurants from '../../components/Restaurants/Restaurants'
+import Attractions from '../../components/Attractions/Attractions'
 
 const TripDetails = (props) => {
   return (
@@ -20,6 +21,12 @@ const TripDetails = (props) => {
         </div>
         <div>
           <Flight />
+        </div>
+        <div>
+          <Restaurants />
+        </div>
+        <div>
+          <Attractions />
         </div>
       </div>
     </>
