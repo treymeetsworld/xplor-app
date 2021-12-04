@@ -40,6 +40,9 @@ const App = () => {
 		addPackingItem(newItemData)
 		.then(updatedTripData => {
 			console.log('front-end new trip', updatedTripData)
+			const updatedTrips = trips.map(trip => trip.App_id === updatedTripData._id ? updatedTripData : trip)
+			setTrips(updatedTrips)
+			navigate('/tripDetails', {state: updatedTripData})
 		})
 	}
 
