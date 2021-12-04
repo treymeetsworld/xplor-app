@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom' 
 
 const PackingForm = (props) => {
@@ -55,7 +55,7 @@ const PackingForm = (props) => {
           onChange={handleChange} 
         /><br/>
         <label>Category</label> 
-        <select class="form-select" value={category} name="category" onChange={handleChange} >
+        <select className="form-select" value={category} name="category" onChange={handleChange} >
           <option value="cosmetics">cosmetics</option>
           <option value="bath">bath</option>
           <option value="clothes">clothes</option>

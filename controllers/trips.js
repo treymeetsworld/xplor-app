@@ -27,8 +27,16 @@ function addPackingItem(req, res) {
   })
 }
 
+function deleteTrip(req,res) {
+  Trip.findByIdAndDelete(req.params.id)
+  .then(trip => {
+    res.json(trip)
+  })
+}
+
 export {
   index,
   create,
-  addPackingItem
+  addPackingItem,
+  deleteTrip as delete
 }
