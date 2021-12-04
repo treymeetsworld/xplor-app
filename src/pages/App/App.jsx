@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import Signup from '../Signup/Signup'
@@ -18,7 +18,7 @@ const App = () => {
 
 	useEffect(() => {
 		getTrips()
-		.then(trips => setTrips(trips))
+			.then(trips => setTrips(trips))
 	}, [])
 
 	const handleLogout = () => {
@@ -33,7 +33,7 @@ const App = () => {
 
 	const handleCreateTrip = tripData => {
 		createTrip(tripData)
-		.then(newTrip => setTrips([...trips, newTrip]))
+			.then(newTrip => setTrips([...trips, newTrip]))
 	}
 	
 	const handleAddPackingItem = newItemData => {
@@ -45,8 +45,6 @@ const App = () => {
 			navigate('/tripDetails', {state: updatedTripData})
 		})
 	}
-
-
 
 	return (
 		<>

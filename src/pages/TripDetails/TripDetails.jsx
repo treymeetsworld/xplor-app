@@ -4,6 +4,7 @@ import PackingList from '../../components/PackingList/PackingList'
 import Hotel from '../../components/Hotel/Hotel'
 import Flight from '../../components/Flight/Flight'
 
+
 const TripDetails = (props) => {
   return (
     <>

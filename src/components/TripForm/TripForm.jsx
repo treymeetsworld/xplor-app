@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 
@@ -12,7 +12,7 @@ const TripForm = (props) => {
     startDate: '',
     endDate: '',
   })
-  
+
   const handleChange = e => {
     setFormData({
       ...formData,
@@ -29,9 +29,9 @@ const TripForm = (props) => {
       props.updateMessage(err.message)
     }
   }
-  
-  const { city, startDate, endDate} = formData
-  
+
+  const { city, startDate, endDate } = formData
+
   const isFormInvalid = () => {
     return !(city, startDate, endDate)
   }
@@ -86,5 +86,5 @@ const TripForm = (props) => {
     </form>
   );
 }
- 
+
 export default TripForm;
