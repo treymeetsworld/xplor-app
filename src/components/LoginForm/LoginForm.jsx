@@ -12,20 +12,20 @@ const LoginForm = (props) => {
   const handleChange = e => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value 
+      [e.target.name]: e.target.value
     })
   }
 
   const handleSubmit = evt => {
     evt.preventDefault()
     authService.login(formData)
-    .then(() => {
-      props.handleSignupOrLogin()
-      navigate('/profile')
-    })
-    .catch(err => {
-      alert('Invalid Credentials')
-    })
+      .then(() => {
+        props.handleSignupOrLogin()
+        navigate('/profile')
+      })
+      .catch(err => {
+        alert('Invalid Credentials')
+      })
   }
 
   return (
@@ -65,5 +65,5 @@ const LoginForm = (props) => {
     </form>
   );
 }
- 
+
 export default LoginForm;

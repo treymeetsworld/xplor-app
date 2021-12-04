@@ -12,7 +12,7 @@ async function signup(req, res) {
 
     const token = createJWT(user)
     res.json({ token })
-  
+
   } catch (err) {
     res.status(400).send({ err: err.errmsg })
   }
@@ -20,7 +20,7 @@ async function signup(req, res) {
 
 function createJWT(user) {
   return jwt.sign(
-    { user }, 
+    { user },
     process.env.SECRET,
     { expiresIn: '24h' }
   )
@@ -29,7 +29,7 @@ function createJWT(user) {
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email })
-    if (!user) return res.status(401).json({ err: 'User not found'})
+    if (!user) return res.status(401).json({ err: 'User not found' })
     user.comparePassword(req.body.pw, (err, isMatch) => {
       if (isMatch) {
         const token = createJWT(user)

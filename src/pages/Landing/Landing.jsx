@@ -1,6 +1,6 @@
 
 
-const Landing = ({user}) => {
+const Landing = ({ user }) => {
   return (
     <main className="container">
       <h1 className="text">
@@ -9,5 +9,5 @@ const Landing = ({user}) => {
     </main>
   )
 }
- 
+
 export default Landing

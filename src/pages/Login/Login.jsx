@@ -1,7 +1,6 @@
 import React from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
-
 const LoginPage = (props) => {
   return (
     <main className="container">
@@ -10,5 +9,5 @@ const LoginPage = (props) => {
     </main>
   );
 }
- 
+
 export default LoginPage;

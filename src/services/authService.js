@@ -7,13 +7,13 @@ function signup(user) {
     headers: new Headers({ 'Content-Type': 'application/json' }),
     body: JSON.stringify(user),
   })
-  .then(res => {
-    return res.json()
-  })
-  .then(({ token }) => tokenService.setToken(token)) 
-  .catch(err => {
-    console.log(err)
-  })
+    .then(res => {
+      return res.json()
+    })
+    .then(({ token }) => tokenService.setToken(token))
+    .catch(err => {
+      console.log(err)
+    })
 }
 
 function getUser() {
@@ -27,17 +27,17 @@ function logout() {
 function login(credentials) {
   return fetch(`${BASE_URL}/login`, {
     method: 'POST',
-    headers: new Headers({ 'Content-Type': 'application/json'}),
+    headers: new Headers({ 'Content-Type': 'application/json' }),
     body: JSON.stringify(credentials)
   })
-  .then(res => {
-    if (res.ok) return res.json()
-    throw new Error('Bad Credentials!')
-  })
-  .then(({ token }) => tokenService.setToken(token))
-  .catch(err => {
-    console.log(err)
-  })
+    .then(res => {
+      if (res.ok) return res.json()
+      throw new Error('Bad Credentials!')
+    })
+    .then(({ token }) => tokenService.setToken(token))
+    .catch(err => {
+      console.log(err)
+    })
 }
 
 export {
