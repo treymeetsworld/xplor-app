@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const packListSchema = new mongoose.Schema({
     item: String,
     category: {
-        type:String, 
+        type: String,
         enum: ['cosmetics', 'bath', 'clothes', 'medicine', 'documents', 'accessories']
     }
 }, {
@@ -21,7 +21,7 @@ const flightSchema = new mongoose.Schema({
 
 const hotelSchema = new mongoose.Schema({
     name: String,
-    cost: {type: Number, min: '25' }
+    cost: { type: Number, min: '25' }
 }, {
     timestamps: true
 })
@@ -35,7 +35,7 @@ const tripSchema = new mongoose.Schema({
     attractions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Attractions" }],
     flights: [flightSchema],
     hotel: [hotelSchema],
-    tripHolder: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"}
+    tripHolder: { type: mongoose.Schema.Types.ObjectId, ref: "Profile" }
 }, {
     timestamps: true,
 })

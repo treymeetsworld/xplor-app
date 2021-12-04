@@ -16,7 +16,15 @@ function create(req, res) {
   })
 }
 
+function deleteTrip(req,res) {
+  Trip.findByIdAndDelete(req.params.id)
+  .then(trip => {
+    res.json(trip)
+  })
+}
+
 export {
   index,
-  create
+  create,
+  deleteTrip as delete
 }
