@@ -9,10 +9,18 @@ const TripDetails = (props) => {
   return (
     <>
       <div>
-        <TripHeader />
-        <PackingList handleAddPackingItem={props.handleAddPackingItem}/>
-        <Hotel />
-        <Flight />
+        <div>
+          <TripHeader />
+        </div>
+        <div>
+          <PackingList handleAddPackingItem={props.handleAddPackingItem}/>
+        </div>
+        <div>
+          <Hotel />
+        </div>
+        <div>
+          <Flight />
+        </div>
       </div>
     </>
   );
