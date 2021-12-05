@@ -14,14 +14,18 @@ const flightSchema = new mongoose.Schema({
     airport: String,
     airline: String,
     flightNo: String,
-    dateTime: Date,
+    confirmationNum: String,
+    date: Date,
+    departureTime: String,
+    landTime: String
 }, {
     timestamps: true
 })
 
 const hotelSchema = new mongoose.Schema({
     name: String,
-    cost: { type: Number, min: '25' }
+    address: String,
+    confirmationNum: String
 }, {
     timestamps: true
 })
