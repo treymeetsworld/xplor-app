@@ -11,6 +11,8 @@ const router = Router()
 router.use(decodeUserFromToken)
 router.get('/', checkAuth, tripsCtrl.index)
 router.post('/:id/packingList', checkAuth, tripsCtrl.addPackingItem)
+router.post('/:id/hotel', checkAuth, tripsCtrl.addHotel)
+router.post('/:id/flight', checkAuth, tripsCtrl.addFlight)
 router.post('/', checkAuth, tripsCtrl.create)
 router.delete('/:id', checkAuth, tripsCtrl.delete)
 

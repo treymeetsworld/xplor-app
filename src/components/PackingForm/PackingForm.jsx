@@ -41,7 +41,7 @@ const PackingForm = (props) => {
     <>
       <div>
         <h2>
-          Add New Item To Pack
+          Packing Form
           {/* {formData.trip} */}
         </h2>
         <form 
