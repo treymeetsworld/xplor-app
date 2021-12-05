@@ -1,29 +1,15 @@
 import axios from 'axios'
 
 
-function getPhotos(req,res) {
-  axios.get(`https://api.unsplash.com/search/photos?page=1&query=${req.params.query}`, { 
-    headers: 
-    {"Authorization": `Client-ID ${process.env.UN_API}`
-  }})
-  .then(apiResponse => {
-    res.json(apiResponse.data)
-  })
+
+// BACK END
+function randomPic(req,res) {
+  console.log(process.env.UN_API);
+  axios.get(`https://api.unsplash.com/photos/random/?client_id=${process.env.UN_API}`)
+  .then(apiResponse => res.json(apiResponse.data))
+  .catch(err => console.log(err, 'backend err'))
 }
-
-function getRandomPhoto(req,res) {
-  axios.get('https://api.unsplash.com/photos/random&client_id=721zpO5p8IAvT6tfwxOJJS15jxKPG8QIXgwISknO808')
-  .then(randomResponse => {
-    res.json(randomResponse.data)
-  })
-}
-
-
-
-
-
 
 export {
-  getPhotos,
-  getRandomPhoto,
+  randomPic,
 }

@@ -4,7 +4,7 @@ const restaurantSchema = new mongoose.Schema({
     name: String,
     imageUrl: String,
     location: String,
-    price: {type: String, enum:['$','$$','$$$','$$$$','$$$$$']}
+    price: { type: String, enum: ['$', '$$', '$$$', '$$$$', '$$$$$'] }
 }, {
     timestamps: true,
 })

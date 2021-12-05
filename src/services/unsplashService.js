@@ -1,19 +1,13 @@
 
+// FRONT END
 
-
-function getPhotos(query) {
-  return fetch(`/api/unsplash/${query}`)
+function randomPic() {
+  return fetch('/api/unsplash/random')
   .then(res => res.json())
+  .catch(err => console.log(err, 'frontend err'))
 }
 
 
-function getRandomPhoto() {
-  fetch(`/api/unsplash/random`)
-  .then(res => res.json())
-}
-
-
-export {
-  getPhotos,
-  getRandomPhoto
+export{
+  randomPic
 }

@@ -4,8 +4,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
 import cors from 'cors'
-import { createApi } from 'unsplash-js'
-import nodeFetch from 'node-fetch'
+
 
 import { router as usersRouter } from './routes/users.js'
 import { router as authRouter } from './routes/auth.js'
@@ -16,10 +15,7 @@ import { router as unsplashRouter } from './routes/unsplash.js'
 
 import('./config/database.js')
 
-const serverApi = createApi({
-  accessKey: `${process.env.UN_KEY}`,
-  
-})
+
 
 const app = express()
 
@@ -48,3 +44,5 @@ const port = process.env.PORT || 3001
 app.listen(port, () => {
   console.log(`Express is listening on port ${port}.`)
 })
+
+

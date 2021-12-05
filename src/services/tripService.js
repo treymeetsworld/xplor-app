@@ -3,7 +3,7 @@ const BASE_URL = '/api/trips'
 
 function getTrips() {
   return fetch(BASE_URL, {
-    headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
   })
   .then(res => res.json())
 }
@@ -15,6 +15,39 @@ function createTrip(formData) {
       'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
     },
     body: JSON.stringify(formData)
+  })
+  .then(res => res.json())
+}
+
+function addPackingItem(newItemData) {
+  return fetch(`${BASE_URL}/${newItemData.trip}/packingList`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newItemData)
+  })
+  .then(res => res.json())
+}
+
+function addHotel(newHotelData) {
+  return fetch(`${BASE_URL}/${newHotelData.trip}/hotel`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newHotelData)
+  })
+  .then(res => res.json())
+}
+
+function addFlight(newFlightData) {
+  return fetch(`${BASE_URL}/${newFlightData.trip}/flight`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newFlightData)
   })
   .then(res => res.json())
 }
@@ -33,15 +66,19 @@ function updateTrip(formData) {
 function deleteTrip(id) {
   return fetch(`${BASE_URL}/${id}`, {
     method: 'DELETE',
-    headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
   })
   .then(res => res.json())
 }
 
 export {
-  getTrips,
-  createTrip,
-  updateTrip,
-  deleteTrip,
+
+    getTrips,
+    createTrip,
+    updateTrip,
+    deleteTrip,
+    addPackingItem,
+    addHotel,
+    addFlight,
 }
 

@@ -10,7 +10,7 @@ const SignupForm = (props) => {
     password: '',
     passwordConf: ''
   })
-  
+
   const handleChange = e => {
     props.updateMessage('')
     setFormData({
@@ -29,9 +29,9 @@ const SignupForm = (props) => {
       props.updateMessage(err.message)
     }
   }
-  
+
   const { name, email, password, passwordConf } = formData
-  
+
   const isFormInvalid = () => {
     return !(name && email && password && password === passwordConf)
   }
@@ -97,5 +97,5 @@ const SignupForm = (props) => {
     </form>
   );
 }
- 
+
 export default SignupForm;

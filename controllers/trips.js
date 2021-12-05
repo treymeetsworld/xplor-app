@@ -1,8 +1,10 @@
 import { Trip } from '../models/trip.js'
 
 function index(req, res) {
-  // User.find({})
-  // .then(users => res.json(users))
+  Trip.find({})
+  .then(trips => {
+    res.json(trips)
+  })
 }
 
 function create(req, res) {
@@ -14,7 +16,51 @@ function create(req, res) {
   })
 }
 
+function addPackingItem(req, res) {
+  Trip.findById(req.params.id)
+  .then(trip => {
+    trip.packList.push(req.body)
+    trip.save()
+    .then(tripWithItem => {
+      res.json(tripWithItem)
+    })
+  })
+}
+
+function addHotel(req, res) {
+  Trip.findById(req.params.id)
+  .then(trip => {
+    trip.hotel.push(req.body)
+    trip.save()
+    .then(tripWithHotel => {
+      res.json(tripWithHotel)
+    })
+  })
+}
+
+function addFlight(req, res) {
+  Trip.findById(req.params.id)
+  .then(trip => {
+    trip.flights.push(req.body)
+    trip.save()
+    .then(tripWithFlight => {
+      res.json(tripWithFlight)
+    })
+  })
+}
+
+function deleteTrip(req,res) {
+  Trip.findByIdAndDelete(req.params.id)
+  .then(trip => {
+    res.json(trip)
+  })
+}
+
 export {
   index,
-  create
+  create,
+  addPackingItem,
+  deleteTrip as delete,
+  addHotel,
+  addFlight,
 }
