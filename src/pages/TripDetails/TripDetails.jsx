@@ -114,6 +114,7 @@ const TripDetails = (props) => {
               <div key={hotel._id}>
                 <p>{hotel.name} - {hotel.address}</p>
                 <p>Confirmation #: {hotel.confirmationNum}</p>
+                <button onClick={() => props.handleDeleteHotel(hotel._id, location.state._id)}>x</button>
               </div>
             )}
           </div>
@@ -131,6 +132,7 @@ const TripDetails = (props) => {
                   <p>{flight.airport} - {flight.airline}</p>
                   <p>Flight #: {flight.flightNo} - Confirmation #: {flight.confirmationNum}</p>
                   {/* need to add time and date here */}
+                  <button  onClick={() => props.handleDeleteFlight(flight._id, location.state._id)}>x</button>
                 </div>
               )}
             </div>

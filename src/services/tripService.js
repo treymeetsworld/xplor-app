@@ -50,6 +50,15 @@ function addHotel(newHotelData) {
         .then(res => res.json())
 }
 
+function deleteHotel(hotelId, tripId) {
+    console.log('services', hotelId, tripId)
+      return fetch(`${BASE_URL}/${tripId}/hotels/${hotelId}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+      })
+          .then(res => res.json())
+  }
+
 function addFlight(newFlightData) {
     return fetch(`${BASE_URL}/${newFlightData.trip}/flight`, {
         method: 'POST',
@@ -60,6 +69,15 @@ function addFlight(newFlightData) {
     })
         .then(res => res.json())
 }
+
+function deleteFlight(flightId, tripId) {
+    console.log('services', flightId, tripId)
+      return fetch(`${BASE_URL}/${tripId}/flights/${flightId}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+      })
+          .then(res => res.json())
+  }
 
 function updateTrip(formData) {
     return fetch(`${BASE_URL}/${formData.id}`, {
@@ -90,5 +108,7 @@ export {
     deletePackingItem,
     addHotel,
     addFlight,
+    deleteFlight,
+    deleteHotel
 }
 

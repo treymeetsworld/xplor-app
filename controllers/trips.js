@@ -51,6 +51,19 @@ function addHotel(req, res) {
   })
 }
 
+function deleteHotel(req, res) {
+  console.log("ctrl", req.params.tripId, req.params.hotelId)
+  Trip.findById(req.params.tripId)
+  .then(trip => {
+    const hotels = trip.hotel
+    hotels.remove({_id: req.params.hotelId})
+    trip.save()
+    .then(tripWithOutHotel => {
+      res.json(tripWithOutHotel)
+    })
+  })
+}
+
 function addFlight(req, res) {
   Trip.findById(req.params.id)
   .then(trip => {
@@ -58,6 +71,19 @@ function addFlight(req, res) {
     trip.save()
     .then(tripWithFlight => {
       res.json(tripWithFlight)
+    })
+  })
+}
+
+function deleteFlight(req, res) {
+  console.log("ctrl", req.params.tripId, req.params.flightId)
+  Trip.findById(req.params.tripId)
+  .then(trip => {
+    const allFlights = trip.flights
+    allFlights.remove({_id: req.params.flightId})
+    trip.save()
+    .then(tripWithOutFlight => {
+      res.json(tripWithOutFlight)
     })
   })
 }
@@ -77,4 +103,6 @@ export {
   deleteTrip as delete,
   addHotel,
   addFlight,
+  deleteHotel,
+  deleteFlight
 }
