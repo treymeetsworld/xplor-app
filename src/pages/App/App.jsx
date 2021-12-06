@@ -121,7 +121,7 @@ const App = () => {
 				<Route path='/addTrip' element={<TripForm  handleCreateTrip={handleCreateTrip} />} />
 				<Route path='/searchUnsplash' element={<Unsplash />} />
 				<Route path='/searchYelp' element={<Yelp />} />
-				<Route path='/tripDetails' element={<TripDetails handleAddPackingItem={handleAddPackingItem} handleDeletePackingItem={handleDeletePackingItem} handleAddHotel={handleAddHotel} handleAddFlight={handleAddFlight}/>} />
+				<Route path='/tripDetails' element={<TripDetails handleAddPackingItem={handleAddPackingItem} handleDeletePackingItem={handleDeletePackingItem} handleAddHotel={handleAddHotel} handleAddFlight={handleAddFlight} handleDeleteFlight={handleDeleteFlight} handleDeleteHotel={handleDeleteHotel}/>} />
 			</Routes>
 		</>
 	);
