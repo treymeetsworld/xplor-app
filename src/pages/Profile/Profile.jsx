@@ -11,7 +11,7 @@ const Profile = (props) => {
         const allMyTrips = allTrips.filter(trip => trip.tripHolder === props.user.profile)
         setMyTrips(allMyTrips)
       })
-  }, [])
+  }, [props.trips])
 
   console.log("my trips", myTrips)
   return (

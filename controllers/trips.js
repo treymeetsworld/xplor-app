@@ -27,6 +27,19 @@ function addPackingItem(req, res) {
   })
 }
 
+function deletePackingItem(req, res) {
+  console.log(req.params.id)
+  
+  Trip.findById(req.params.id)
+  .then(trip => {
+    trip.packList.slice(req.body)
+    trip.save()
+    .then(tripWithOutItem => {
+      res.json(tripWithOutItem)
+    })
+  })
+}
+
 function addHotel(req, res) {
   Trip.findById(req.params.id)
   .then(trip => {
@@ -60,6 +73,7 @@ export {
   index,
   create,
   addPackingItem,
+  deletePackingItem,
   deleteTrip as delete,
   addHotel,
   addFlight,
