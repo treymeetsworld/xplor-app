@@ -19,7 +19,7 @@ const Profile = (props) => {
       <h1 className="text">
         {props.user.name}'s Trips
       </h1>
-        <Link to='/search' >search</Link>
+        <Link to='/searchUnsplash' >search</Link>
       <Link to='/addTrip' >Add trip</Link>
       <div>
         <ul className="trips">
