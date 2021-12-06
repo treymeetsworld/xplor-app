@@ -71,6 +71,7 @@ const App = () => {
 		deleteTrip(id)
 			.then(deletedTrip => {
 				setTrips(trips.filter(trip => trip._id !== deletedTrip._id))
+				navigate('/profile', {state: trips})
 			})
 	}
 
