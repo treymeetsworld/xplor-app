@@ -8,6 +8,7 @@ import Users from '../Users/Users'
 import TripDetails from '../TripDetails/TripDetails'
 import Profile from '../Profile/Profile'
 import Unsplash from '../Unsplash/Unsplash'
+import Yelp from '../Yelp/Yelp'
 import * as authService from '../../services/authService'
 import TripForm from '../../components/TripForm/TripForm'
 import { createTrip , getTrips, addPackingItem, deletePackingItem, deleteTrip, addHotel, addFlight } from '../../services/tripService'
@@ -94,7 +95,8 @@ const App = () => {
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />	
 				<Route path='/profile' element={user ? <Profile handleDeleteTrip={handleDeleteTrip} user={user} trips={trips}/> : <Navigate to='/signup' />} />
 				<Route path='/addTrip' element={<TripForm  handleCreateTrip={handleCreateTrip} />} />
-				<Route path='/search' element={<Unsplash />} />
+				<Route path='/searchUnsplash' element={<Unsplash />} />
+				<Route path='/searchYelp' element={<Yelp />} />
 				<Route path='/tripDetails' element={<TripDetails handleAddPackingItem={handleAddPackingItem} handleDeletePackingItem={handleDeletePackingItem} handleAddHotel={handleAddHotel} handleAddFlight={handleAddFlight}/>} />
 			</Routes>
 		</>
