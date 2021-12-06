@@ -30,8 +30,11 @@ const TripDetails = (props) => {
             <div>
               <h2>Cosmetics:</h2>
               {cosmeticItems.map(thing => 
-                <p key={thing._id}>{thing.item}</p>
-              )}
+              <div key={thing._id}>
+                <p>{thing.item}</p>
+                <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+                </div>
+                )}
             </div>
           :
           ''
@@ -40,7 +43,10 @@ const TripDetails = (props) => {
             <div>
               <h2>Clothes:</h2>
               {clothesItems.map(thing => 
-                <p key={thing._id}>{thing.item}</p>
+              <div key={thing._id}>
+              <p>{thing.item}</p>
+              <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+              </div>
               )}
             </div>
           :
@@ -50,7 +56,10 @@ const TripDetails = (props) => {
             <div>
               <h2>Accessories:</h2>
               {accessoriesItems.map(thing => 
-                <p key={thing._id}>{thing.item}</p>
+                <div key={thing._id}>
+                <p>{thing.item}</p>
+                <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+                </div>
               )}
             </div>
           :
@@ -60,7 +69,10 @@ const TripDetails = (props) => {
             <div>
               <h2>Documents:</h2>
               {documentsItems.map(thing => 
-                <p key={thing._id}>{thing.item}</p>
+                <div key={thing._id}>
+                <p>{thing.item}</p>
+                <button onClick={() => props.handleDeletePackingItem(thing._id, thing.trip)}>Delete Item</button>
+                </div>
               )}
             </div>
           :
@@ -70,7 +82,10 @@ const TripDetails = (props) => {
             <div>
               <h2>Bath:</h2>
               {bathItems.map(thing => 
-                <p key={thing._id}>{thing.item}</p>
+                <div key={thing._id}>
+                <p>{thing.item}</p>
+                <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+                </div>
               )}
             </div>
           :
@@ -80,7 +95,10 @@ const TripDetails = (props) => {
             <div>
               <h2>Medicine:</h2>
               {medicineItems.map(thing => 
-                <p key={thing._id}>{thing.item}</p>
+                <div key={thing._id}>
+                <p>{thing.item}</p>
+                <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+                </div>
               )}
             </div>
           :

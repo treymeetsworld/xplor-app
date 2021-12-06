@@ -10,7 +10,7 @@ import Profile from '../Profile/Profile'
 import Unsplash from '../Unsplash/Unsplash'
 import * as authService from '../../services/authService'
 import TripForm from '../../components/TripForm/TripForm'
-import { createTrip , getTrips, addPackingItem, deleteTrip, addHotel, addFlight } from '../../services/tripService'
+import { createTrip , getTrips, addPackingItem, deletePackingItem, deleteTrip, addHotel, addFlight } from '../../services/tripService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
@@ -45,6 +45,15 @@ const App = () => {
 			setTrips(updatedTrips)
 			navigate('/tripDetails', {state: updatedTripData})
 		})
+	}
+
+	const handleDeletePackingItem = id => {
+		console.log(id)
+		deletePackingItem(id)
+			.then(deletedPackingItem => {
+				setTrips()
+				navigate('/profile', {state: trips})
+			})
 	}
 
 	const handleAddHotel = newHotelData => {
@@ -86,7 +95,7 @@ const App = () => {
 				<Route path='/profile' element={user ? <Profile handleDeleteTrip={handleDeleteTrip} user={user} trips={trips}/> : <Navigate to='/signup' />} />
 				<Route path='/addTrip' element={<TripForm  handleCreateTrip={handleCreateTrip} />} />
 				<Route path='/search' element={<Unsplash />} />
-				<Route path='/tripDetails' element={<TripDetails handleAddPackingItem={handleAddPackingItem} handleAddHotel={handleAddHotel} handleAddFlight={handleAddFlight}/>} />
+				<Route path='/tripDetails' element={<TripDetails handleAddPackingItem={handleAddPackingItem} handleDeletePackingItem={handleDeletePackingItem} handleAddHotel={handleAddHotel} handleAddFlight={handleAddFlight}/>} />
 			</Routes>
 		</>
 	);
