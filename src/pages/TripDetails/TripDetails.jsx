@@ -32,7 +32,7 @@ const TripDetails = (props) => {
               {cosmeticItems.map(thing => 
               <div key={thing._id}>
                 <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+                <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
                 </div>
                 )}
             </div>
@@ -45,7 +45,7 @@ const TripDetails = (props) => {
               {clothesItems.map(thing => 
               <div key={thing._id}>
               <p>{thing.item}</p>
-              <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+              <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
               </div>
               )}
             </div>
@@ -58,7 +58,7 @@ const TripDetails = (props) => {
               {accessoriesItems.map(thing => 
                 <div key={thing._id}>
                 <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+                <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
                 </div>
               )}
             </div>
@@ -71,7 +71,7 @@ const TripDetails = (props) => {
               {documentsItems.map(thing => 
                 <div key={thing._id}>
                 <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id, thing.trip)}>Delete Item</button>
+                <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
                 </div>
               )}
             </div>
@@ -82,9 +82,9 @@ const TripDetails = (props) => {
             <div>
               <h2>Bath:</h2>
               {bathItems.map(thing => 
-                <div key={thing._id}>
+                <div className="delete-btn" key={thing._id}>
                 <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+                <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
                 </div>
               )}
             </div>
@@ -95,9 +95,9 @@ const TripDetails = (props) => {
             <div>
               <h2>Medicine:</h2>
               {medicineItems.map(thing => 
-                <div key={thing._id}>
+                <div className="delete-btn" key={thing._id}>
                 <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id)}>Delete Item</button>
+                <button  onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
                 </div>
               )}
             </div>
@@ -114,6 +114,7 @@ const TripDetails = (props) => {
               <div key={hotel._id}>
                 <p>{hotel.name} - {hotel.address}</p>
                 <p>Confirmation #: {hotel.confirmationNum}</p>
+                <button onClick={() => props.handleDeleteHotel(hotel._id, location.state._id)}>x</button>
               </div>
             )}
           </div>
@@ -131,6 +132,7 @@ const TripDetails = (props) => {
                   <p>{flight.airport} - {flight.airline}</p>
                   <p>Flight #: {flight.flightNo} - Confirmation #: {flight.confirmationNum}</p>
                   {/* need to add time and date here */}
+                  <button  onClick={() => props.handleDeleteFlight(flight._id, location.state._id)}>x</button>
                 </div>
               )}
             </div>
