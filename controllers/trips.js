@@ -28,11 +28,11 @@ function addPackingItem(req, res) {
 }
 
 function deletePackingItem(req, res) {
-  console.log(req.params.id)
-  
-  Trip.findById(req.params.id)
+  console.log("ctrl", req.params.tripId, req.params.itemId)
+  Trip.findById(req.params.tripId)
   .then(trip => {
-    trip.packList.slice(req.body)
+    const packItems = trip.packList
+    packItems.remove({_id: req.params.itemId})
     trip.save()
     .then(tripWithOutItem => {
       res.json(tripWithOutItem)

@@ -30,8 +30,9 @@ function addPackingItem(newItemData) {
         .then(res => res.json())
 }
 
-function deletePackingItem(id) {
-    return fetch(`${BASE_URL}/${id}/packingList`, {
+function deletePackingItem(itemId, tripId) {
+  console.log('services', itemId, tripId)
+    return fetch(`${BASE_URL}/${tripId}/packList/${itemId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
     })

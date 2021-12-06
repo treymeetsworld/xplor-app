@@ -47,12 +47,14 @@ const App = () => {
 		})
 	}
 
-	const handleDeletePackingItem = id => {
-		console.log(id)
-		deletePackingItem(id)
-			.then(deletedPackingItem => {
-				setTrips()
-				navigate('/profile', {state: trips})
+	const handleDeletePackingItem = (itemId, tripId) => {
+		// console.log("app.jsx", itemId, tripId)
+		deletePackingItem(itemId, tripId)
+		.then(updatedTrip => {
+				console.log("app.jsx front end", updatedTrip)
+				const newTripState = trips.map(trip => trip._id === updatedTrip._id ? updatedTrip : trip)
+				setTrips(newTripState)
+				navigate('/tripDetails', {state: updatedTrip})
 			})
 	}
 
@@ -76,7 +78,7 @@ const App = () => {
 		})
 	}
 
-	const handleDeleteTrip = id => {
+	const handleDeleteTrip = (id) => {
 		deleteTrip(id)
 			.then(deletedTrip => {
 				setTrips(trips.filter(trip => trip._id !== deletedTrip._id))
