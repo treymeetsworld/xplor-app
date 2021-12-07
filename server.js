@@ -12,7 +12,6 @@ import { router as tripsRouter } from './routes/trips.js'
 import { router as restaurantsRouter } from './routes/restaurants.js'
 import { router as attractionsRouter } from './routes/attractions.js'
 import { router as unsplashRouter } from './routes/unsplash.js'
-import{ router as yelpRouter } from './routes/yelp.js'
 
 import('./config/database.js')
 
@@ -31,7 +30,7 @@ app.use('/api/trips', tripsRouter)
 app.use('/api/restaurants', restaurantsRouter)
 app.use('/api/attractions', attractionsRouter)
 app.use('/api/unsplash', unsplashRouter)
-app.use('/api/yelp', yelpRouter)
+
 
 
 

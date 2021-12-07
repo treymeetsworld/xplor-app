@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { searchRestaraunt } from "../../services/yelpService"
+import { searchRestaurant } from "../../services/yelpService"
 
 const Yelp = () => {
   const [formData, setFormData] = useState({
@@ -16,10 +16,10 @@ const Yelp = () => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      searchRestaraunt(formData.query)
-      .then(restaurantData => {
-        console.log(restaurantData)
-      })
+      searchRestaurant(formData.query)
+      // .then(restaurantData => {
+      //   console.log(restaurantData)
+      // })
     } catch (err) {
       console.log(err)
     }
@@ -43,9 +43,7 @@ const Yelp = () => {
         name="query"
         onChange={handleChange}
       />
-      <Link to='/searchYelp'>
       <button disabled={isFormInvalid()}>Get Restaurant</button>
-      </Link>
       </form>
       
     </div>
