@@ -1,32 +1,12 @@
-@import './landing.scss';
-@import './signupForm.scss';
-@import './loginForm.scss';
 
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import './sass/2-base/global';
+@import './sass//3-layouts/landing-page';
+@import './sass//4-components/form';
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
-div {
-  border: solid 1px black;
-  margin: 10px;
-}
 
-.delete-btn {
-  display: inline;
-}
+
+
+
+
+
