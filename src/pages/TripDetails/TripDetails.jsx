@@ -44,8 +44,10 @@ const TripDetails = (props) => {
               <h2>Clothes:</h2>
               {clothesItems.map(thing => 
               <div key={thing._id}>
+                <span>
               <p>{thing.item}</p>
-              <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
+              <button className="btn btn-danger"onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
+                </span>
               </div>
               )}
             </div>

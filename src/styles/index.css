@@ -2,6 +2,7 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #f5cd92;
+  height: 100%;
 }
 
 *, *:before, *:after {
@@ -15,27 +16,213 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f5cd92;
+  margin: 0 0 0 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.container {
+nav {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 5px 0 5px 0;
+}
+
+#root {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.text {
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex-top {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.top-1 {
+  width: 30%;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 5px solid black;
+}
+
+.top-2 {
+  width: 70%;
+  margin-top: -56px;
+}
+
+.logo {
+  top: 0;
+  margin: 0%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   font: 6em sans-serif;
+  color: whitesmoke;
+  display: inline-block;
+}
+
+.plan {
+  font-size: 50px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  display: inline-block;
+}
+
+.splash-landing {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  width: 100%;
+  height: 500px;
+  background: salmon;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.suggestion {
+  height: 100px;
+  width: 80%;
+  background: skyblue;
+  margin-bottom: -50px;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.splash-suggestion {
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: 5em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.splash-suggestion h3 {
+  text-align: center;
+  font-size: 3em;
+  margin: 0;
+}
+
+.state {
+  height: 300px;
+  width: 300px;
+  background: skyblue;
+  text-align: center;
+  margin-right: 50px;
+}
+
+.splash-choice {
+  height: 300px;
+  width: 150px;
+  background: chocolate;
+  padding: 10px;
+}
+
+.choice-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.attractions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 5em;
+}
+
+.event-container {
+  width: 50%;
+  background: cornflowerblue;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.event {
+  height: 100px;
+  width: 250px;
+  background: crimson;
+  margin: 0  10px 10px 0;
 }
 
 .formContainer {
@@ -62,5 +249,11 @@ code {
 
 .inputContainer {
   margin-bottom: 1rem;
+}
+
+.access {
+  color: aliceblue;
+  list-style: none;
+  z-index: 100;
 }
 /*# sourceMappingURL=index.css.map */
