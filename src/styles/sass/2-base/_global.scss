@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background-color: #f5cd92;
+  
   height: 100%;
 }
 *, *:before, *:after {
@@ -13,7 +13,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5cd92;
+  background-color: #28394d;
+  color: white;
   margin: 0 0 0 1em;
   display: flex;
   flex-direction: column;
