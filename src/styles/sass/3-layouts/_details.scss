@@ -1,0 +1,49 @@
+.accordion {
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accordion-item {
+  width: 95%;
+  
+}
+
+.accordion-button {
+  background-color: #a4b7cd;
+}
+
+.accordion-body {
+  background-color: #54677d;
+}
+
+.parent {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  
+}
+
+.child {
+  align-items: baseline;
+  margin: 8px;
+}
+
+h5,p {
+  color: #121925;
+}
+
+.card-header {
+  width: 100%;
+  text-align: center;
+}
+
+.pack-delete {
+  background-color: #c6871e;
+}
+
+.restaurant-card {
+  width: 25%;
+  height: 25%;
+}

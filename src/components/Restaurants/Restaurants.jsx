@@ -61,14 +61,19 @@ const Restaurants = (props) => {
           {results.length ?
             <>
               <h1>Restaurants</h1>
-              <div>
+              <div className="restaurant-card">
                 {results.map((restaurant, idx) =>
-                  <div key={restaurant._id}>
+                  <div className="child card" key={restaurant._id}>
+                    <img id="restaurant-img" src={restaurant.image_url} className="card-img-top" alt="..."/>
                     {restaurant.name &&
-                      <p>
+                      <h5 className="card-header">
                         {restaurant.name}
-                      </p>
+                      </h5>
                     }
+                    <p>Rating: {restaurant.rating}/5</p>
+                    <p>Price: {restaurant.price}</p>
+                    <p> Contact: {restaurant.phone}</p>
+                    <button className="">Add to Trip</button>
                   </div>
                 )}
               </div>
