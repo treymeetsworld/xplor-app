@@ -1,11 +1,89 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { getAttractions } from "../../services/yelpService"
 
 const Attractions = (props) => {
-  return (
-    <>
-      <h1>Attractions / Yelp API Search</h1>
-    </>
-  )
-}
+  const [formData, setFormData] = useState({
+    query: ''
+  })
+  const [results, setResults] = useState([])
 
+
+  const handleChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
+      getAttractions(formData.query)
+        .then(results => {
+          setResults(results.businesses)
+        })
+        .catch(() => {
+          console.log("something went wrong!");
+        })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const { query } = formData
+  const isFormInvalid = () => {
+    return !(query)
+  }
+
+  if (results === null) {
+    return <div>Try a different search</div>;
+  } else {
+    return (
+      <>
+        <div>
+          <h3>Attractions Search</h3>
+          <form
+            autoComplete="off"
+            onSubmit={handleSubmit}
+          >
+            <p> search-query</p>
+            <input
+              type="text"
+              value={query}
+              name="query"
+              onChange={handleChange}
+            />
+            <button
+              disabled={isFormInvalid()}
+            >Get Attraction
+            </button>
+          </form>
+          {results.length ?
+            <>
+              <h1>Attractions</h1>
+              <div className="Attraction-card">
+                {results.map((attraction, idx) =>
+                  <div className="child card" key={attraction._id}>
+                    <img id="Attraction-img" src={attraction.image_url} className="card-img-top" alt="..."/>
+                    {attraction.name &&
+                      <h5 className="card-header">
+                        {attraction.name}
+                      </h5>
+                    }
+                    <p>Rating: {attraction.rating}/5</p>
+                    <p>Price: {attraction.price}</p>
+                    <p> Contact: {attraction.phone}</p>
+                    <button className="">Add to Trip</button>
+                  </div>
+                )}
+              </div>
+            </>
+            :
+            <h4>No results</h4>
+          }
+        </div>
+      </>
+    );
+  }
+}
 export default Attractions;

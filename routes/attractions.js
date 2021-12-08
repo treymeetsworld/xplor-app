@@ -5,10 +5,10 @@ import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 const router = Router()
 
 /*---------- Public Routes ----------*/
-
+router.get('/:query',  attractionsCtrl.getAttractions )
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
-router.get('/', checkAuth, attractionsCtrl.index)
+
 
 export { router }
