@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom' 
+import { useLocation } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import TripHeader from '../../components/TripHeader/TripHeader'
 import PackingForm from '../../components/PackingForm/PackingForm'
 import HotelForm from '../../components/HotelForm/HotelForm'
@@ -8,8 +9,8 @@ import Restaurants from '../../components/Restaurants/Restaurants'
 import Attractions from '../../components/Attractions/Attractions'
 
 const TripDetails = (props) => {
-  
   const location = useLocation() 
+
 
   const changeClass = () => {
     
@@ -39,7 +40,7 @@ const TripDetails = (props) => {
               </h2>
               <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div className="accordion-body">
-                <PackingForm handleAddPackingItem={props.handleAddPackingItem}/>
+                  <PackingForm handleAddPackingItem={props.handleAddPackingItem} />
                 </div>
               </div>
             </div>
@@ -51,8 +52,6 @@ const TripDetails = (props) => {
               </h2>
               <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div className="accordion-body parent">
-
-
                   {cosmeticItems.length ? 
                   <div className="card child">
                     <div className="card-header">
@@ -183,27 +182,25 @@ const TripDetails = (props) => {
               </div>
             </div>
           </div>
-          
-
         </div>
         <div>
-          {location.state.hotel.length ? 
-          <div>
-            <h2>Hotel Info:</h2>
-            {location.state.hotel.map(hotel => 
-              <div key={hotel._id}>
-                <p>{hotel.name} - {hotel.address}</p>
-                <p>Confirmation #: {hotel.confirmationNum}</p>
-                <button onClick={() => props.handleDeleteHotel(hotel._id, location.state._id)}>x</button>
-              </div>
-            )}
-          </div>
-          :
-          <HotelForm handleAddHotel={props.handleAddHotel}/>
+          {location.state.hotel.length ?
+            <div>
+              <h2>Hotel Info:</h2>
+              {location.state.hotel.map(hotel =>
+                <div key={hotel._id}>
+                  <p>{hotel.name} - {hotel.address}</p>
+                  <p>Confirmation #: {hotel.confirmationNum}</p>
+                  <button onClick={() => props.handleDeleteHotel(hotel._id, location.state._id)}>x</button>
+                </div>
+              )}
+            </div>
+            :
+            <HotelForm handleAddHotel={props.handleAddHotel} />
           }
         </div>
         <div>
-          <FlightForm handleAddFlight={props.handleAddFlight}/>
+          <FlightForm handleAddFlight={props.handleAddFlight} />
           {location.state.flights.length ?
             <div>
               <h3>Flight Info:</h3>
@@ -212,16 +209,16 @@ const TripDetails = (props) => {
                   <p>{flight.airport} - {flight.airline}</p>
                   <p>Flight #: {flight.flightNo} - Confirmation #: {flight.confirmationNum}</p>
                   {/* need to add time and date here */}
-                  <button  onClick={() => props.handleDeleteFlight(flight._id, location.state._id)}>x</button>
+                  <button onClick={() => props.handleDeleteFlight(flight._id, location.state._id)}>x</button>
                 </div>
               )}
             </div>
-          :
-          <p>No Flight Info</p>
+            :
+            <p>No Flight Info</p>
           }
         </div>
         <div>
-          <Restaurants />
+          <Restaurants handleAddRestaurant={props.handleAddRestaurant} trip={location.state} />
         </div>
         <div>
           <Attractions />
@@ -237,7 +234,7 @@ export default TripDetails;
 
 
 
-  
+
 
 
 
