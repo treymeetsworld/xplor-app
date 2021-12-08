@@ -1,4 +1,3 @@
-import React from 'react'
 import { useLocation } from 'react-router-dom' 
 import TripHeader from '../../components/TripHeader/TripHeader'
 import PackingForm from '../../components/PackingForm/PackingForm'
@@ -154,3 +153,19 @@ const TripDetails = (props) => {
 }
 
 export default TripDetails;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+

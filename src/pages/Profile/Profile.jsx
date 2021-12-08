@@ -2,8 +2,11 @@ import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { getTrips } from '../../services/tripService'
 
+
+
 const Profile = (props) => {
   const [myTrips, setMyTrips] = useState([])
+
 
   useEffect(() => {
     getTrips()
