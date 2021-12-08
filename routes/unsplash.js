@@ -6,8 +6,8 @@ const router = Router()
 
 /*---------- Public Routes ----------*/
 
-router.get('/random', unsplashCtrl.randomPic )
-
+router.get('/random', unsplashCtrl.getRandom )
+router.get('/:query', unsplashCtrl.searchUnsplash)
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 // router.get('/:query', checkAuth, unsplashCtrl.getPhotos)

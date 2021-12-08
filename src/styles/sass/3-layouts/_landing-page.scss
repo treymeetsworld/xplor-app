@@ -1,4 +1,4 @@
-.container {
+.container-top {
   display: flex;
   width: 100%;
   height: 100%;
@@ -44,6 +44,19 @@
   align-items: flex-end;
   justify-content: center;
 }
+
+.splash-landing-img{
+  align-self: flex-end;
+  width: 100%;
+  height: 500px;
+  background: url('../../assets/david.jpeg');
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .suggestion{
   height: 100px;
   width: 80%;
@@ -55,6 +68,7 @@
   justify-content: space-around;
   align-items: center;
 }
+
 .splash-suggestion{
   align-self: center;
   margin-top: 5em;
