@@ -24,88 +24,123 @@ const TripDetails = (props) => {
           <TripHeader />
         </div>
         <div>
-          <h1>Packing Component</h1>
-          <PackingForm handleAddPackingItem={props.handleAddPackingItem}/>
-          {cosmeticItems.length ? 
-            <div>
-              <h2>Cosmetics:</h2>
-              {cosmeticItems.map(thing => 
-              <div key={thing._id}>
-                <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
+          <h1>Packing List</h1>
+          <div className="accordion" id="accordionExample">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingOne">
+                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Add An Item To Your Packing List
+                </button>
+              </h2>
+              <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div className="accordion-body">
+                <PackingForm handleAddPackingItem={props.handleAddPackingItem}/>
                 </div>
-                )}
-            </div>
-          :
-          ''
-          }
-          {clothesItems.length ? 
-            <div>
-              <h2>Clothes:</h2>
-              {clothesItems.map(thing => 
-              <div key={thing._id}>
-                <span>
-              <p>{thing.item}</p>
-              <button className="btn btn-danger"onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
-                </span>
               </div>
-              )}
             </div>
-          :
-          ''
-          }
-          {accessoriesItems.length ? 
-            <div>
-              <h2>Accessories:</h2>
-              {accessoriesItems.map(thing => 
-                <div key={thing._id}>
-                <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingTwo">
+                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  My Packing List
+                </button>
+              </h2>
+              <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div className="accordion-body parent">
+                  {cosmeticItems.length ? 
+                  <div class="card child">
+                    <div class="card-header">
+                      <h5>Cosmetics</h5>
+                    </div>
+                    {cosmeticItems.map(thing => 
+                    <ul key={thing._id} class="list-group list-group-flush">
+                      <li class="list-group-item"><button title="delete item" className="btn pack-delete" onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button> {thing.item}</li>
+                    </ul>
+                    )}
+                  </div>
+                  :
+                  ''
+                  }
+                  
+                  {clothesItems.length ? 
+                  <div class="card child ">
+                    <div class="card-header">
+                      <h5>Clothes</h5>
+                    </div>
+                    {clothesItems.map(thing => 
+                    <ul key={thing._id} class="list-group list-group-flush">
+                      <li class="list-group-item"><button title="delete item" className="btn pack-delete" onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button> {thing.item}</li>
+                    </ul>
+                    )}
+                  </div>
+                  :
+                  ''
+                  }
+
+                  {accessoriesItems.length ?  
+                  <div class="card child ">
+                    <div class="card-header">
+                      <h5>Accessories</h5>
+                    </div>
+                    {accessoriesItems.map(thing => 
+                    <ul key={thing._id} class="list-group list-group-flush">
+                      <li class="list-group-item"><button title="delete item" className="btn pack-delete" onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button> {thing.item}</li>
+                    </ul>
+                    )}
+                  </div>
+                  :
+                  ''
+                  }
+
+                  {documentsItems.length ?  
+                  <div class="card child ">
+                    <div class="card-header">
+                      <h5>Documents</h5>
+                    </div>
+                    {documentsItems.map(thing => 
+                    <ul key={thing._id} class="list-group list-group-flush">
+                      <li class="list-group-item"><button title="delete item" className="btn pack-delete" onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button> {thing.item}</li>
+                    </ul>
+                    )}
+                  </div>
+                  :
+                  ''
+                  }
+
+                  {bathItems.length ?  
+                  <div class="card child ">
+                    <div class="card-header">
+                      <h5>Bath</h5>
+                    </div>
+                    {bathItems.map(thing => 
+                    <ul key={thing._id} class="list-group list-group-flush">
+                      <li class="list-group-item"><button title="delete item" className="btn pack-delete" onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button> {thing.item}</li>
+                    </ul>
+                    )}
+                  </div>
+                  :
+                  ''
+                  }
+                  
+                  {medicineItems.length ?  
+                  <div class="card child ">
+                    <div class="card-header">
+                      <h5>Medicine</h5>
+                    </div>
+                    {medicineItems.map(thing => 
+                    <ul key={thing._id} class="list-group list-group-flush">
+                      <li class="list-group-item"><button title="delete item" className="btn pack-delete" onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button> {thing.item}</li>
+                    </ul>
+                    )}
+                  </div>
+                  :
+                  ''
+                  }
+            
                 </div>
-              )}
+              </div>
             </div>
-          :
-          ''
-          }
-          {documentsItems.length ? 
-            <div>
-              <h2>Documents:</h2>
-              {documentsItems.map(thing => 
-                <div key={thing._id}>
-                <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
-                </div>
-              )}
-            </div>
-          :
-          ''
-          }
-          {bathItems.length ? 
-            <div>
-              <h2>Bath:</h2>
-              {bathItems.map(thing => 
-                <div className="delete-btn" key={thing._id}>
-                <p>{thing.item}</p>
-                <button onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
-                </div>
-              )}
-            </div>
-          :
-          ''
-          }
-          {medicineItems.length ? 
-            <div>
-              <h2>Medicine:</h2>
-              {medicineItems.map(thing => 
-                <div className="delete-btn" key={thing._id}>
-                <p>{thing.item}</p>
-                <button  onClick={() => props.handleDeletePackingItem(thing._id, location.state._id)}>x</button>
-                </div>
-              )}
-            </div>
-          :
-          ''
-          }
+          </div>
+          
 
         </div>
         <div>
