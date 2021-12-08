@@ -4,7 +4,8 @@ const packListSchema = new mongoose.Schema({
     item: String,
     category: {
         type: String,
-        enum: ['cosmetics', 'bath', 'clothes', 'medicine', 'documents', 'accessories']
+        enum: ['cosmetics', 'bath', 'clothes', 'medicine', 'documents', 'accessories'],
+        packed: Boolean,
     }
 }, {
     timestamps: true

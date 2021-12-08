@@ -1,9 +1,9 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import ReactDOM from 'react-dom';
 import './styles/index.scss';
 import App from './pages/App/App';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-// import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 ReactDOM.render(
