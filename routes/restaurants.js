@@ -10,5 +10,6 @@ router.get('/:query',  restaurantsCtrl.searchRestaurants )
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 // router.get('/', checkAuth, restaurantsCtrl.index)
+router.post('/:id', checkAuth, restaurantsCtrl.addRestaurant)
 
 export { router }
