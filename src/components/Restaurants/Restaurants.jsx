@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { searchRestaurant } from "../../services/yelpService"
+// import { addRestaurant } from '../../services/tripService'
+
 
 const Restaurants = (props) => {
   const [formData, setFormData] = useState({
     query: ''
   })
   const [results, setResults] = useState([])
-
 
   const handleChange = e => {
     setFormData({
@@ -25,6 +26,15 @@ const Restaurants = (props) => {
         .catch(() => {
           console.log("something went wrong!");
         })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleAddSubmit = (restaurant) => {
+    const trip = props.trip
+    try {
+      props.handleAddRestaurant(restaurant, trip)
     } catch (err) {
       console.log(err)
     }
@@ -64,7 +74,7 @@ const Restaurants = (props) => {
               <div className="restaurant-card">
                 {results.map((restaurant, idx) =>
                   <div className="child card" key={restaurant._id}>
-                    <img id="restaurant-img" src={restaurant.image_url} className="card-img-top" alt="..."/>
+                    <img id="restaurant-img" src={restaurant.image_url} className="card-img-top" alt="..." />
                     {restaurant.name &&
                       <h5 className="card-header">
                         {restaurant.name}
@@ -73,7 +83,7 @@ const Restaurants = (props) => {
                     <p>Rating: {restaurant.rating}/5</p>
                     <p>Price: {restaurant.price}</p>
                     <p> Contact: {restaurant.phone}</p>
-                    <button className="">Add to Trip</button>
+                    <button className="btn btn-success" onClick={() => handleAddSubmit(restaurant)}>Add to Trip</button>
                   </div>
                 )}
               </div>
