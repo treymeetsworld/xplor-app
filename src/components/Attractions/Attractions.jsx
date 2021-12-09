@@ -67,10 +67,10 @@ const Attractions = (props) => {
             >Get Attraction
             </button>
           </form>
-          {results.length ?
-            <>
-              <h1>Attractions</h1>
-              <div className="restaurant-card">
+          <div>
+            {results.length ?
+              <>
+                <div className="restaurant-card">
                 {results.map((attraction, idx) =>
                   <div className="child card" key={attraction._id}>
                     <img id="restaurant-img" src={attraction.image_url} className="card-img-top" alt="..."/>
@@ -86,13 +86,15 @@ const Attractions = (props) => {
                   </div>
                 )}
               </div>
-            </>
-            :
-            <h4>No results</h4>
-          }
+              </>
+              :
+              <h4>Search for a city to get results</h4>
+            }
+          </div>
         </div>
       </>
     );
   }
 }
 export default Attractions;
+
