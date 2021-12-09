@@ -95,7 +95,7 @@ nav ul li {
 
 .top-2 {
   width: 70%;
-  margin-top: -56px;
+  margin-top: -70px;
 }
 
 .logo {
@@ -120,22 +120,6 @@ nav ul li {
       align-self: flex-end;
   width: 100%;
   height: 500px;
-  background: salmon;
-  left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.splash-landing-img {
-  width: 100%;
-  height: 500px;
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,20 +134,40 @@ nav ul li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: url("../../assets/david.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-.splash-landing-img span {
-  margin-top: 30%;
+.splash-landing span {
+  margin-top: -80%;
   font-size: 2em;
+  z-index: 1;
+}
+
+.splash-landing img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.splash-landing img::before {
+  content: '';
+  position: absolute;
+  width: inherit;
+  opacity: 0.9;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("../../assets/david.jpeg");
+  background-color: rgba(0, 0, 0, 0.25);
+  background-size: cover;
+  -webkit-box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
 }
 
 .suggestion {
   height: 100px;
   width: 80%;
-  background: skyblue;
+  background: #F7E2AB;
   margin-bottom: -50px;
   border-radius: 30px;
   display: -webkit-box;
@@ -178,6 +182,13 @@ nav ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
+}
+
+.suggestion div {
+  color: #28394D;
+  font-weight: 700;
+  font-size: 1.2em;
 }
 
 .splash-suggestion {
@@ -213,7 +224,7 @@ nav ul li {
 .splash-choice {
   height: 300px;
   width: 150px;
-  background: chocolate;
+  background: #F7E2AB;
   padding: 10px;
 }
 
@@ -249,14 +260,14 @@ nav ul li {
 .event {
   height: 90px;
   width: 280px;
-  background: crimson;
+  background: #F7E2AB;
   margin: 0  10px 10px 0;
 }
 
 .event-details {
   height: 400px;
   width: 37%;
-  background: crimson;
+  background: #F7E2AB;
 }
 
 .attractions {
@@ -338,13 +349,13 @@ nav ul li {
 .food-details {
   height: 400px;
   width: 40%;
-  background: crimson;
+  background: #F7E2AB;
 }
 
 .food {
   height: 200px;
   width: 200px;
-  background: crimson;
+  background: #F7E2AB;
   margin: 0  10px 10px 0;
 }
 

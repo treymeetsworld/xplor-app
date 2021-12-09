@@ -34,7 +34,8 @@ const Landing = ({ user }) => {
             <h3 className="plan">PLAN</h3>
           </div>
           <div className="top-2">
-            <div className={clicked ? "splash-landing" : "splash-landing-img"}>
+            <div className="splash-landing">
+              <img src='#'alt="" />
               <span>HEROHEROHEROHEROHEROHERO</span>
               <div className="suggestion">
                 <div onClick={toggleClick}
