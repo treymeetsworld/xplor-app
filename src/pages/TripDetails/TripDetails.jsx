@@ -332,7 +332,7 @@ const TripDetails = (props) => {
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
                 <div class="accordion-body">
-                  <Attractions />
+                <Attractions handleAddAttraction={props.handleAddAttraction} trip={location.state} />
                 </div>
               </div>
             </div>
@@ -349,13 +349,6 @@ const TripDetails = (props) => {
               </div>
             </div>
           </div>
-        </div>
-
-
-        
-  
-        <div>
-          <Attractions handleAddAttraction={props.handleAddAttraction} trip={location.state} />
         </div>
       </div>
     </>
