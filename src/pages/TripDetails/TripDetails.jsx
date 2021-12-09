@@ -7,7 +7,7 @@ import HotelForm from '../../components/HotelForm/HotelForm'
 import FlightForm from '../../components/FlightForm/FlightForm'
 import Restaurants from '../../components/Restaurants/Restaurants'
 import Attractions from '../../components/Attractions/Attractions'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 
 
@@ -15,10 +15,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const TripDetails = (props) => {
   const location = useLocation() 
 
-
-  const changeClass = () => {
-    
-  }
 
   const cosmeticItems = location.state.packList.filter(packItem => packItem.category === "cosmetics")
   const clothesItems = location.state.packList.filter(packItem => packItem.category === "clothes")
