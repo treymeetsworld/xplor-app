@@ -6,16 +6,14 @@ const TripHeader = (props) => {
   const startDateString = (new Date(location.state.startDate)).toLocaleDateString()
   const endDateString = (new Date(location.state.endDate)).toLocaleDateString()
   return (
-    <>
-      <h1>
+    <div className="xplor-text-div">
+      <h1 className="xplor-here xplor-city">
         X'plor {location.state.city}!
       </h1>
-      <h2>
-        Start Date: {startDateString}
-        <br />
-        End Date: {endDateString}
-      </h2>
-    </>
+      <h4 className="xplor-here xplor-date" >
+        Trip Dates:   {startDateString} - {endDateString}
+      </h4>
+    </div>
   )
 }
 

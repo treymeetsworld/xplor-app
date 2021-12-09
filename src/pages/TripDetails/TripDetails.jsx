@@ -30,10 +30,10 @@ const TripDetails = (props) => {
   return (
     <>
       <div className="main-div">
-        <div>
+        <div className="details-header">
           <TripHeader />
         </div>
-        <div>
+        <div className="bottom-big-div">
           <h1>Packing List</h1>
           <div className="accordion" id="accordionExample">
             <div className="accordion-item">
