@@ -311,9 +311,9 @@ const TripDetails = (props) => {
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
                 <div class="accordion-body">
                   {location.state.restaurants.length ?
-                    <div>
+                    <div className="restaurant-cards parent">
                       {location.state.restaurants.map(restaurant =>
-                        <div className="card child col-sm-6">
+                        <div className="card child col-sm-3">
                           <div className="card-header" key={restaurant._id}>
                             <p>{restaurant.name}</p>
                             <img id='restaurant-img' className="card-img-top" src={restaurant.imageUrl} alt=""></img>
@@ -353,12 +353,12 @@ const TripDetails = (props) => {
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
-                <div class="accordion-body">
+                
                 <div class="accordion-body">
                   {location.state.attractions.length ?
-                    <div>
+                    <div className="restaurant-cards parent">
                       {location.state.attractions.map(attraction =>
-                        <div className="card child col-sm-6">
+                        <div className="card child col-sm-3">
                           <div className="card-header" key={attraction._id}>
                             <p>{attraction.name}</p>
                             <img id='restaurant-img' className="card-img-top" src={attraction.imageUrl} alt=""></img>
@@ -369,7 +369,6 @@ const TripDetails = (props) => {
                     :
                     <h2>No attractions saved. </h2>
                   }
-                </div>
                 </div>
               </div>
             </div>
