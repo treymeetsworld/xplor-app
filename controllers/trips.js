@@ -3,6 +3,7 @@ import { Trip } from '../models/trip.js'
 function index(req, res) {
   Trip.find({})
   .populate('restaurants')
+  .populate('attractions')
     .then(trips => {
       res.json(trips)
     })

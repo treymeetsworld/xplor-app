@@ -38,7 +38,7 @@ const tripSchema = new mongoose.Schema({
     endDate: Date,
     packList: [packListSchema],
     restaurants: [{ type: mongoose.Schema.Types.ObjectId, ref: "Restaurant" }],
-    attractions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Attractions" }],
+    attractions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Attraction" }],
     flights: [flightSchema],
     hotel: [hotelSchema],
     tripHolder: { type: mongoose.Schema.Types.ObjectId, ref: "Profile" }

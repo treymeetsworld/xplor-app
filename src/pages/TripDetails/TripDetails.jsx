@@ -354,7 +354,22 @@ const TripDetails = (props) => {
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
                 <div class="accordion-body">
-                  <h2>Brey Put saved attractions here =]</h2>
+                <div class="accordion-body">
+                  {location.state.attractions.length ?
+                    <div>
+                      {location.state.attractions.map(attraction =>
+                        <div className="card child col-sm-6">
+                          <div className="card-header" key={attraction._id}>
+                            <p>{attraction.name}</p>
+                            <img id='restaurant-img' className="card-img-top" src={attraction.imageUrl} alt=""></img>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    :
+                    <h2>No attractions saved. </h2>
+                  }
+                </div>
                 </div>
               </div>
             </div>
