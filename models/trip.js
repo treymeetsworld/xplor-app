@@ -31,13 +31,30 @@ const hotelSchema = new mongoose.Schema({
     timestamps: true
 })
 
+const restaurantSchema = new mongoose.Schema({
+    name: String,
+    imageUrl: String,
+    price: { type: String, enum: ['$', '$$', '$$$', '$$$$', '$$$$$'] }
+}, {
+    timestamps: true,
+})
+
+const attractionSchema = new mongoose.Schema({
+    name: String,
+    imageUrl: String,
+    description: String
+}, {
+    timestamps: true,
+})
+
 const tripSchema = new mongoose.Schema({
     city: String,
     startDate: Date,
     endDate: Date,
+    imageUrl: String,
     packList: [packListSchema],
-    restaurants: [{ type: mongoose.Schema.Types.ObjectId, ref: "Restaraunts" }],
-    attractions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Attractions" }],
+    restaurants: [restaurantSchema],
+    attractions: [attractionSchema],
     flights: [flightSchema],
     hotel: [hotelSchema],
     tripHolder: { type: mongoose.Schema.Types.ObjectId, ref: "Profile" }
