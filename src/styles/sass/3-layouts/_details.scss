@@ -1,9 +1,29 @@
+.bottom-big-div {
+  padding-top: 30px;
+}
+
+
+.xplor-text-div {
+  align-self: flex-end;
+  margin-bottom: 50px;
+}
+
+.xplor-here {
+  color: #1b2433;
+}
+
+.xplor-city {
+  font-size: 6rem;
+  margin-bottom: 30px;
+}
+
 .accordion {
   width: 98%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .accordion-item {
@@ -91,3 +111,10 @@ li.list-group-item {
   
 //   object-fit: fill;
 // }
+
+.details-header {
+  background-color: #f7e2ab;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
