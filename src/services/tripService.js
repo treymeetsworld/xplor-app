@@ -31,7 +31,7 @@ function addPackingItem(newItemData) {
 }
 
 function deletePackingItem(itemId, tripId) {
-  console.log('services', itemId, tripId)
+    console.log('services', itemId, tripId)
     return fetch(`${BASE_URL}/${tripId}/packList/${itemId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
@@ -52,12 +52,12 @@ function addHotel(newHotelData) {
 
 function deleteHotel(hotelId, tripId) {
     console.log('services', hotelId, tripId)
-      return fetch(`${BASE_URL}/${tripId}/hotels/${hotelId}`, {
-          method: 'DELETE',
-          headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
-      })
-          .then(res => res.json())
-  }
+    return fetch(`${BASE_URL}/${tripId}/hotels/${hotelId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+        .then(res => res.json())
+}
 
 function addFlight(newFlightData) {
     return fetch(`${BASE_URL}/${newFlightData.trip}/flight`, {
@@ -72,12 +72,12 @@ function addFlight(newFlightData) {
 
 function deleteFlight(flightId, tripId) {
     console.log('services', flightId, tripId)
-      return fetch(`${BASE_URL}/${tripId}/flights/${flightId}`, {
-          method: 'DELETE',
-          headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
-      })
-          .then(res => res.json())
-  }
+    return fetch(`${BASE_URL}/${tripId}/flights/${flightId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+        .then(res => res.json())
+}
 
 function updateTrip(formData) {
     return fetch(`${BASE_URL}/${formData.id}`, {
@@ -98,6 +98,17 @@ function deleteTrip(id) {
         .then(res => res.json())
 }
 
+function addRestaurant(newRestaurantData, trip) {
+    return fetch(`/api/restaurants/${trip._id}`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newRestaurantData)
+    })
+        .then(res => res.json())
+}
+
 export {
 
     getTrips,
@@ -109,6 +120,7 @@ export {
     addHotel,
     addFlight,
     deleteFlight,
-    deleteHotel
+    deleteHotel,
+    addRestaurant
 }
 
