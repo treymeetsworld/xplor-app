@@ -15,9 +15,6 @@ const TripHeader = (props) => {
         <br />
         End Date: {endDateString}
       </h2>
-      <p>
-        <Link to='/editTrip'>Edit Location</Link>
-      </p>
     </>
   )
 }

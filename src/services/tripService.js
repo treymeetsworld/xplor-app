@@ -109,6 +109,17 @@ function addRestaurant(newRestaurantData, trip) {
         .then(res => res.json())
 }
 
+function addAttraction(newAttractionData, trip) {
+    return fetch(`/api/attractions/${trip._id}`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newAttractionData)
+    })
+        .then(res => res.json())
+}
+
 export {
 
     getTrips,
@@ -121,6 +132,7 @@ export {
     addFlight,
     deleteFlight,
     deleteHotel,
-    addRestaurant
+    addRestaurant,
+    addAttraction
 }
 

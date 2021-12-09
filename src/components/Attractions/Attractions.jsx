@@ -30,6 +30,15 @@ const Attractions = (props) => {
     }
   }
 
+    const handleAddSubmit = (attraction) => {
+    const trip = props.trip
+    try {
+      props.handleAddAttraction(attraction, trip)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   const { query } = formData
   const isFormInvalid = () => {
     return !(query)

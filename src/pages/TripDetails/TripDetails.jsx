@@ -7,6 +7,10 @@ import HotelForm from '../../components/HotelForm/HotelForm'
 import FlightForm from '../../components/FlightForm/FlightForm'
 import Restaurants from '../../components/Restaurants/Restaurants'
 import Attractions from '../../components/Attractions/Attractions'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+
 
 const TripDetails = (props) => {
   const location = useLocation() 
@@ -351,7 +355,7 @@ const TripDetails = (props) => {
         
   
         <div>
-          <Attractions />
+          <Attractions handleAddAttraction={props.handleAddAttraction} trip={location.state} />
         </div>
       </div>
     </>

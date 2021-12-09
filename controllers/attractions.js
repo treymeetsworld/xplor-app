@@ -11,6 +11,25 @@ function getAttractions(req,res) {
   .then(apiResponse => res.json(apiResponse.data))
 }
 
+function addAttraction(req, res) {
+  console.log('req.body', req.body)
+  const rest = new Attraction()
+  rest.name = req.body.name
+  rest.imageUrl = req.body.image_url
+  rest.location = req.body.location
+  rest.price = req.body.price
+  rest.save()
+  Trip.findById(req.params.id)
+    .then(trip => {
+      trip.attractions.push(rest)
+      trip.save()
+        .then(tripWithAttraction => {
+          res.json(tripWithAttraction)
+        })
+    })
+}
+
 export {
-  getAttractions
+  getAttractions,
+  addAttraction
 }

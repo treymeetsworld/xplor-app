@@ -9,6 +9,7 @@ router.get('/:query',  attractionsCtrl.getAttractions )
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
+router.post('/:id', checkAuth, attractionsCtrl.addAttraction)
 
 
 export { router }
