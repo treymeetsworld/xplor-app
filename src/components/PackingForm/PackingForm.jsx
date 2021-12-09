@@ -40,10 +40,6 @@ const PackingForm = (props) => {
   return (
     <>
       <div>
-        <h2>
-          Packing Form
-          {/* {formData.trip} */}
-        </h2>
         <form 
         autoComplete="off"
         onSubmit={handleSubmit}

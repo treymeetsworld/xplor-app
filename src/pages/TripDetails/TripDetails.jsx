@@ -25,7 +25,7 @@ const TripDetails = (props) => {
 
   return (
     <>
-      <div>
+      <div className="main-div">
         <div>
           <TripHeader />
         </div>
@@ -38,7 +38,7 @@ const TripDetails = (props) => {
                   Add An Item To Your Packing List
                 </button>
               </h2>
-              <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" >
                 <div className="accordion-body">
                   <PackingForm handleAddPackingItem={props.handleAddPackingItem} />
                 </div>
@@ -50,7 +50,7 @@ const TripDetails = (props) => {
                   My Packing List
                 </button>
               </h2>
-              <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" >
                 <div className="accordion-body parent">
                   {cosmeticItems.length ? 
                   <div className="card child">
@@ -184,79 +184,172 @@ const TripDetails = (props) => {
           </div>
         </div>
 
-
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Add Hotel Information
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
-              <div class="accordion-body">
-                <HotelForm handleAddHotel={props.handleAddHotel} />
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                My Hotel Information
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
-              <div class="accordion-body">
-                {location.state.hotel.length ?
-                  <div>
-                    {location.state.hotel.map(hotel =>
-                    <div className="card child col-sm-6">
-                      <div className="card-header"key={hotel._id}>
-                        {hotel.name}
-                      </div>
-                      <div>
-                        <ul className="list-group list-group-flush">
-                          <li className="list-group-item">{hotel.name} - {hotel.address}</li>
-                          <li className="list-group-item">Confirmation #: {hotel.confirmationNum}</li>
-                        </ul>
-                      </div>
-                      <div className="card-footer">
-                        <button className="btn" onClick={() => props.handleDeleteHotel(hotel._id, location.state._id)}>Delete Hotel</button>
-                      </div>
-                    </div>
-                    )}
-                  </div>  
-                :
-                <h2>No Hotel's Yet</h2>
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-          
-
         <div>
-          <FlightForm handleAddFlight={props.handleAddFlight} />
-          {location.state.flights.length ?
-            <div>
-              <h3>Flight Info:</h3>
-              {location.state.flights.map(flight =>
-                <div>
-                  <p>{flight.airport} - {flight.airline}</p>
-                  <p>Flight #: {flight.flightNo} - Confirmation #: {flight.confirmationNum}</p>
-                  {/* need to add time and date here */}
-                  <button onClick={() => props.handleDeleteFlight(flight._id, location.state._id)}>x</button>
+        <h1>Hotel Information</h1>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Add Your Hotel
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
+                <div class="accordion-body">
+                  <HotelForm handleAddHotel={props.handleAddHotel} />
                 </div>
-              )}
+              </div>
             </div>
-            :
-            <p>No Flight Info</p>
-          }
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  My Hotels
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
+                <div class="accordion-body">
+                  {location.state.hotel.length ?
+                    <div>
+                      {location.state.hotel.map(hotel =>
+                      <div className="card child col-sm-6">
+                        <div className="card-header"key={hotel._id}>
+                          {hotel.name}
+                        </div>
+                        <div>
+                          <ul className="list-group list-group-flush">
+                            <li className="list-group-item">{hotel.name} - {hotel.address}</li>
+                            <li className="list-group-item">Confirmation #: {hotel.confirmationNum}</li>
+                          </ul>
+                        </div>
+                        <div className="card-footer">
+                          <button className="btn" onClick={() => props.handleDeleteHotel(hotel._id, location.state._id)}>Delete Hotel</button>
+                        </div>
+                      </div>
+                      )}
+                    </div>  
+                  :
+                  <h2>No Hotels Yet</h2>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+
         <div>
-          <Restaurants handleAddRestaurant={props.handleAddRestaurant} trip={location.state} />
+        <h1>Flight Information</h1>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Add Your Flight
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
+                <div class="accordion-body">
+                <FlightForm handleAddFlight={props.handleAddFlight} />
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  My Flights
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
+                <div class="accordion-body">
+                  {location.state.flights.length ?
+                    <div>
+                      {location.state.flights.map(flight =>
+                      <div className="card child col-sm-6">
+                        <div className="card-header"key={flight._id}>
+                        Flight #: {flight.flightNo}
+                        </div>
+                        <div>
+                          <ul className="list-group list-group-flush">
+                            <li className="list-group-item">{flight.airport} - {flight.airline}</li>
+                            <li className="list-group-item">Confirmation #: {flight.confirmationNum}</li>
+                          </ul>
+                        </div>
+                        <div className="card-footer">
+                          <button className="btn" onClick={() => props.handleDeleteHotel(flight._id, location.state._id)}>Delete Hotel</button>
+                        </div>
+                      </div>
+                      )}
+                    </div>  
+                  :
+                  <h2>No Flights Yet</h2>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div>
+        <h1>Restaurants</h1>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Find Restaurants To Add To Your Trip
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
+                <div class="accordion-body">
+                  <Restaurants handleAddRestaurant={props.handleAddRestaurant} trip={location.state} />
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  My Saved Restaurants
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
+                <div class="accordion-body">
+                  <h2>Brey Put saved restaurants here =]</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+        <h1>Attractions</h1>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Find Attractions To Add To Your Trip
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" >
+                <div class="accordion-body">
+                  <Attractions />
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  My Saved Attractions
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
+                <div class="accordion-body">
+                  <h2>Brey Put saved attractions here =]</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+  
         <div>
           <Attractions />
         </div>

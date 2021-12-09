@@ -56,8 +56,8 @@ const Restaurants = (props) => {
             autoComplete="off"
             onSubmit={handleSubmit}
           >
-            <p> search-query</p>
             <input
+              placeholder="City, State"
               type="text"
               value={query}
               name="query"
@@ -68,29 +68,32 @@ const Restaurants = (props) => {
             >Get Restaurant
             </button>
           </form>
-          {results.length ?
-            <>
-              <h1>Restaurants</h1>
-              <div className="restaurant-card">
-                {results.map((restaurant, idx) =>
-                  <div className="child card" key={restaurant._id}>
-                    <img id="restaurant-img" src={restaurant.image_url} className="card-img-top" alt="..." />
-                    {restaurant.name &&
-                      <h5 className="card-header">
-                        {restaurant.name}
-                      </h5>
-                    }
-                    <p>Rating: {restaurant.rating}/5</p>
-                    <p>Price: {restaurant.price}</p>
-                    <p> Contact: {restaurant.phone}</p>
-                    <button className="btn btn-success" onClick={() => handleAddSubmit(restaurant)}>Add to Trip</button>
-                  </div>
-                )}
-              </div>
-            </>
-            :
-            <h4>No results</h4>
-          }
+          <div>
+            {results.length ?
+              <>
+                <div className="restaurant-cards parent">
+                  {results.map((restaurant, idx) =>
+                    <div className="card child col-sm-3" key={restaurant._id}>
+                      <div className='img-div'>
+                        <img id="restaurant-img" src={restaurant.image_url} className="card-img-top" alt="..." />
+                      </div>
+                      {restaurant.name &&
+                        <h5 className="card-header">
+                          {restaurant.name}
+                        </h5>
+                      }
+                      <p>Rating: {restaurant.rating}/5</p>
+                      <p>Price: {restaurant.price}</p>
+                      <p> Contact: {restaurant.phone}</p>
+                      <button className="btn btn-success" onClick={() => handleAddSubmit(restaurant)}>Add to Trip</button>
+                    </div>
+                  )}
+                </div>
+              </>
+              :
+              <h4>Search for a city to get results</h4>
+            }
+          </div>
         </div>
       </>
     );

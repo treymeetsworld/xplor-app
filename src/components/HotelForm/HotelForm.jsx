@@ -42,9 +42,7 @@ const HotelForm = (props) => {
   return (
     <>
       <div>
-        <h2>
-          Hotel Form
-        </h2>
+      
         <form 
         autoComplete="off"
         onSubmit={handleSubmit}
