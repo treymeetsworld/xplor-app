@@ -74,7 +74,7 @@ const Restaurants = (props) => {
                 <div className="restaurant-cards parent">
                   {results.map((restaurant, idx) =>
                     <div className="card child col-sm-3" key={restaurant._id}>
-                      <div className='img-div'>
+                      <div className="card-header">
                         <img id="restaurant-img" src={restaurant.image_url} className="card-img-top" alt="..." />
                       </div>
                       {restaurant.name &&
