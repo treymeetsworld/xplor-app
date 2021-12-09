@@ -27,7 +27,7 @@
 
 .child {
   align-items: baseline;
-  margin: 8px;
+  margin: 5px;
 }
 
 h5,p {
@@ -41,6 +41,10 @@ h5,p {
 
 .pack-delete {
   background-color: #c6871e;
+  padding: 0px 2px;
+  font-size: 8px;
+  position: relative;
+  left: 5px;
 }
 
 .restaurant-card {
@@ -50,4 +54,18 @@ h5,p {
 
 input[type=checkbox]:checked + label.strike-item{
   text-decoration: line-through;
+}
+
+.check-left {
+  position: relative;
+  left: -3px;
+  top: 2px;
+}
+
+li.list-group-item {
+  width: 100%;
+}
+.card {
+  border-color: #c6871e;
+  
 }
