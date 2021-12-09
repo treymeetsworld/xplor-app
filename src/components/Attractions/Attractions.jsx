@@ -55,7 +55,6 @@ const Attractions = (props) => {
             autoComplete="off"
             onSubmit={handleSubmit}
           >
-            <p> search-query</p>
             <input
               type="text"
               value={query}
