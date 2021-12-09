@@ -11,7 +11,7 @@ import Unsplash from '../Unsplash/Unsplash'
 import Yelp from '../Yelp/Yelp'
 import * as authService from '../../services/authService'
 import TripForm from '../../components/TripForm/TripForm'
-import { createTrip, getTrips, addPackingItem, deletePackingItem, deleteTrip, addHotel, addFlight, deleteHotel, deleteFlight, addRestaurant } from '../../services/tripService'
+import { createTrip, getTrips, addPackingItem, deletePackingItem, deleteTrip, addHotel, addFlight, deleteHotel, deleteFlight, addRestaurant, addAttraction } from '../../services/tripService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
@@ -114,8 +114,14 @@ const App = () => {
 			.then(updatedTrip => {
 				console.log('frontend', updatedTrip)
 			})
+}
 
-	}
+
+const handleAddAttraction = (attraction, trip) => {
+	addAttraction(attraction, trip)
+		.then(updatedTrip => {
+		})
+}
 
 	return (
 		<>
@@ -129,7 +135,7 @@ const App = () => {
 				<Route path='/addTrip' element={<TripForm handleCreateTrip={handleCreateTrip} />} />
 				<Route path='/searchUnsplash' element={<Unsplash />} />
 				<Route path='/searchYelp' element={<Yelp />} />
-				<Route path='/tripDetails' element={<TripDetails handleAddRestaurant={handleAddRestaurant} handleAddPackingItem={handleAddPackingItem} handleDeletePackingItem={handleDeletePackingItem} handleAddHotel={handleAddHotel} handleAddFlight={handleAddFlight} handleDeleteFlight={handleDeleteFlight} handleDeleteHotel={handleDeleteHotel} />} />
+				<Route path='/tripDetails' element={<TripDetails handleAddRestaurant={handleAddRestaurant} handleAddAttraction={handleAddAttraction} handleAddPackingItem={handleAddPackingItem} handleDeletePackingItem={handleDeletePackingItem} handleAddHotel={handleAddHotel} handleAddFlight={handleAddFlight} handleDeleteFlight={handleDeleteFlight} handleDeleteHotel={handleDeleteHotel} />} />
 			</Routes>
 		</>
 	);
