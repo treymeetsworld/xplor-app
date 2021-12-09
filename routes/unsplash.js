@@ -6,7 +6,7 @@ const router = Router()
 
 /*---------- Public Routes ----------*/
 
-router.get('/random', unsplashCtrl.getRandom )
+router.get('/random/:query', unsplashCtrl.getRandom )
 router.get('/:query', unsplashCtrl.searchUnsplash)
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
