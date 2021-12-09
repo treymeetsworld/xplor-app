@@ -1,8 +1,8 @@
 
 // FRONT END
 
-function getRandom() {
-  return fetch('/api/unsplash/random')
+function getRandom(query) {
+  return fetch(`/api/unsplash/random/${query}`)
   .then(res => res.json())
   .catch(err => console.log(err, 'frontend err'))
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
+import { getRandom } from '../../services/unsplashService'
 
 
 const TripForm = (props) => {
@@ -12,6 +12,8 @@ const TripForm = (props) => {
     startDate: '',
     endDate: '',
   })
+
+  const [cityUrl, setCityUrl] = useState([])
 
   const handleChange = e => {
     setFormData({
@@ -30,6 +32,15 @@ const TripForm = (props) => {
     }
   }
 
+  function handleClick() {
+    let city = formData.city
+    getRandom(city)
+    .then(result => {
+    setCityUrl(result)
+  })
+}
+
+
   const { city, startDate, endDate } = formData
 
   const isFormInvalid = () => {
@@ -37,7 +48,7 @@ const TripForm = (props) => {
   }
 
   return (
-    <form
+    <><form
       autoComplete="off"
       onSubmit={handleSubmit}
       className="formContainer"
@@ -52,8 +63,7 @@ const TripForm = (props) => {
           id="city"
           value={city}
           name="city"
-          onChange={handleChange}
-        />
+          onChange={handleChange} />
       </div>
       <div className="inputContainer">
         <label htmlFor="startDate" className="label">Start Date</label>
@@ -63,8 +73,7 @@ const TripForm = (props) => {
           id="startDate"
           value={startDate}
           name="startDate"
-          onChange={handleChange}
-        />
+          onChange={handleChange} />
       </div>
       <div className="inputContainer">
         <label htmlFor="endDate" className="label">End Date</label>
@@ -74,9 +83,10 @@ const TripForm = (props) => {
           id="endDate"
           value={endDate}
           name="endDate"
-          onChange={handleChange}
-        />
+          onChange={handleChange} />
       </div>
+    <button onClick={handleClick} type="button">city photo</button>
+    <img src={cityUrl.urls && cityUrl.urls.small} alt="" />
       <div className="inputContainer">
         <button disabled={isFormInvalid()} className="button">Add Trip</button>
         <Link to="/profile">
@@ -84,6 +94,7 @@ const TripForm = (props) => {
         </Link>
       </div>
     </form>
+    </>
   );
 }
 
