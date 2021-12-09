@@ -4,7 +4,7 @@ const attractionSchema = new mongoose.Schema({
     name: String,
     imageUrl: String,
     description: String,
-    location: String,
+    // location: String,
 }, {
     timestamps: true,
 })

@@ -30,6 +30,15 @@ const Attractions = (props) => {
     }
   }
 
+    const handleAddSubmit = (attraction) => {
+    const trip = props.trip
+    try {
+      props.handleAddAttraction(attraction, trip)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   const { query } = formData
   const isFormInvalid = () => {
     return !(query)
@@ -61,10 +70,10 @@ const Attractions = (props) => {
           {results.length ?
             <>
               <h1>Attractions</h1>
-              <div className="Attraction-card">
+              <div className="restaurant-card">
                 {results.map((attraction, idx) =>
                   <div className="child card" key={attraction._id}>
-                    <img id="Attraction-img" src={attraction.image_url} className="card-img-top" alt="..."/>
+                    <img id="restaurant-img" src={attraction.image_url} className="card-img-top" alt="..."/>
                     {attraction.name &&
                       <h5 className="card-header">
                         {attraction.name}
@@ -73,7 +82,7 @@ const Attractions = (props) => {
                     <p>Rating: {attraction.rating}/5</p>
                     <p>Price: {attraction.price}</p>
                     <p> Contact: {attraction.phone}</p>
-                    <button className="">Add to Trip</button>
+                    <button className="btn btn-success" onClick={() => handleAddSubmit(attraction)}>Add to Trip</button>
                   </div>
                 )}
               </div>

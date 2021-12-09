@@ -225,7 +225,7 @@ const TripDetails = (props) => {
           <Restaurants handleAddRestaurant={props.handleAddRestaurant} trip={location.state} />
         </div>
         <div>
-          <Attractions />
+          <Attractions handleAddAttraction={props.handleAddAttraction} trip={location.state} />
         </div>
       </div>
     </>
