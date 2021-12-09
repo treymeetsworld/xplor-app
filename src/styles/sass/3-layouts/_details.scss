@@ -7,7 +7,6 @@
 
 .accordion-item {
   width: 95%;
-  
 }
 
 .accordion-button {
@@ -46,4 +45,8 @@ h5,p {
 .restaurant-card {
   width: 25%;
   height: 25%;
+}
+
+input[type=checkbox]:checked + label.strike-item{
+  text-decoration: line-through;
 }

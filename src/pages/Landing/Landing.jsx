@@ -34,10 +34,11 @@ const Landing = ({ user }) => {
             <h3 className="plan">PLAN</h3>
           </div>
           <div className="top-2">
-            <div className={clicked ? "splash-landing":"splash-landing-img"}>
+            <div className={clicked ? "splash-landing" : "splash-landing-img"}>
+              <span>HEROHEROHEROHEROHEROHERO</span>
               <div className="suggestion">
-                <div onClick={toggleClick} 
-                className="destination">Destination
+                <div onClick={toggleClick}
+                  className="destination">Destination
                 </div>
                 <div className="arrival">Arrival</div>
                 <div className="departure">Departure</div>
@@ -47,7 +48,7 @@ const Landing = ({ user }) => {
           </div>
         </div><div className="splash-suggestion">
           <div className="h3-container">
-            <h3>Xperience Top Destinations</h3>
+            <h3>X'perience Top Destinations</h3>
           </div>
           <div className="choice-container">
             <div className="state">
@@ -58,18 +59,47 @@ const Landing = ({ user }) => {
             <div className="splash-choice"></div>
             <div className="splash-choice"></div>
           </div>
-        </div><div className="attractions">
-          <div className="event-container">
-            <div className="event"></div>
-            <div className="event"></div>
-            <div className="event"></div>
-            <div className="event"></div>
-            <div className="event"></div>
-            <div className="event"></div>
-            <div className="event"></div>
-            <div className="event"></div>
+        </div>
+        <div className="attractions">
+          <div className="h3-container">
+            <h3>X'citing Attractions</h3>
           </div>
-          <div className="event-details"></div>
+          <div className="evt-card-container">
+            <div className="event-container">
+              <div className="event"></div>
+              <div className="event"></div>
+              <div className="event"></div>
+              <div className="event"></div>
+              <div className="event"></div>
+              <div className="event"></div>
+            </div>
+            <div className="event-details">
+              <div className="evt-details-img"></div>
+            </div>
+          </div>
+        </div>
+        <div className="cuisine-container">
+          <div className="h3-container">
+            <h3>X'cuisite Cuisine</h3>
+          </div>
+          <div className="food-card-container">
+            <div className="category">
+            </div>
+            <div className="food-choice">
+              <div className="food"></div>
+              <div className="food"></div>
+              <div className="food"></div>
+              <div className="food"></div>
+            </div>
+            <div className="food-details">
+              <div className="food-details-img"></div>
+            </div>
+          </div>
+        </div>
+        <div className="final-plan">
+        <div className="h3-container">
+            <h1>Final Plan</h1>
+          </div>
         </div>
       </main >
     </>

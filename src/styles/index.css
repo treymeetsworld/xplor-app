@@ -134,23 +134,30 @@ nav ul li {
 }
 
 .splash-landing-img {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   width: 100%;
   height: 500px;
-  background: url("../../assets/david.jpeg");
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: url("../../assets/david.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.splash-landing-img span {
+  margin-top: 30%;
+  font-size: 2em;
 }
 
 .suggestion {
@@ -174,8 +181,6 @@ nav ul li {
 }
 
 .splash-suggestion {
-  -ms-flex-item-align: center;
-      align-self: center;
   margin-top: 5em;
   width: 100%;
   display: -webkit-box;
@@ -191,6 +196,10 @@ nav ul li {
   text-align: center;
   font-size: 3em;
   margin: 0;
+}
+
+.h3-container {
+  margin-bottom: 1.5em;
 }
 
 .state {
@@ -228,9 +237,97 @@ nav ul li {
 }
 
 .event-container {
-  width: 50%;
-  background: cornflowerblue;
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.event {
+  height: 90px;
+  width: 280px;
+  background: crimson;
+  margin: 0  10px 10px 0;
+}
+
+.event-details {
+  height: 400px;
+  width: 37%;
+  background: crimson;
+}
+
+.attractions {
+  width: 100%;
+  margin-top: 2em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.attractions h3 {
+  text-align: center;
+  font-size: 3em;
+  margin: 0;
+}
+
+.evt-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.evt-details-img {
+  height: 35%;
+  background: skyblue;
+}
+
+.cuisine-container {
+  margin-top: 2em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cuisine-container h3 {
+  text-align: center;
+  font-size: 3em;
+  margin: 0;
+}
+
+.category {
   height: 300px;
+  width: 300px;
+  background: skyblue;
+  margin: 2.5em 2.5em 2.5em 0;
+}
+
+.food-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-right: 2em;
+}
+
+.food-choice {
+  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -238,11 +335,55 @@ nav ul li {
       flex-wrap: wrap;
 }
 
-.event {
-  height: 100px;
-  width: 250px;
+.food-details {
+  height: 400px;
+  width: 40%;
+  background: crimson;
+}
+
+.food {
+  height: 200px;
+  width: 200px;
   background: crimson;
   margin: 0  10px 10px 0;
+}
+
+.food-details-img {
+  height: 40%;
+  background: skyblue;
+}
+
+.final-plan {
+  margin-top: 2em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.final-plan h3 {
+  text-align: center;
+  font-size: 3em;
+  margin: 0;
+}
+
+.final-plan h1 {
+  text-align: center;
+  font-size: 5em;
+  margin: 0;
+}
+
+.hero-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.hero-wrapper span {
+  font-size: 2em;
 }
 
 .formContainer {
@@ -333,6 +474,10 @@ h5, p {
 .restaurant-card {
   width: 25%;
   height: 25%;
+}
+
+input[type=checkbox]:checked + label.strike-item {
+  text-decoration: line-through;
 }
 
 .access {
