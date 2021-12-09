@@ -19,7 +19,7 @@
 }
 .top-2{
   width: 70%;
-  margin-top: -56px;
+  margin-top: -70px;
 }
 .logo{
   top: 0;
@@ -38,40 +38,55 @@
   align-self: flex-end;
   width: 100%;
   height: 500px;
-  background: salmon;
-  left: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.splash-landing-img{
-  width: 100%;
-  height: 500px;
   left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  background: url('../../assets/david.jpeg');
+    span{
+      margin-top: -80%;
+      font-size: 2em;
+      z-index: 1;
+
+    } 
+    img{
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
+}
+
+.splash-landing img::before{
+  content: '';
+  position: absolute;
+  width: inherit;
+  opacity: 0.9;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('../../assets/david.jpeg');
+  background-color: rgba(0, 0, 0, 0.25);
   background-size: cover;
-  background-repeat: no-repeat;
-  span{
-    margin-top: 30%;
-    font-size: 2em;
-  }
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2)
 }
 
 .suggestion{
   height: 100px;
   width: 80%;
-  background: skyblue;
+  background: $banana;
   margin-bottom: -50px;
   border-radius: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  z-index: 1;
+      div{
+        color: $charcoal;
+        font-weight: 700;
+        font-size: 1.2em;
+      }
 }
 
 .splash-suggestion{
@@ -98,7 +113,7 @@
 .splash-choice{
   height: 300px;
   width: 150px;
-  background: chocolate;
+  background: $banana;
   padding: 10px;
 }
 .choice-container{
@@ -120,13 +135,13 @@
 .event{
   height: 90px;
   width: 280px;
-  background: crimson;
+  background: $banana;
   margin:0  10px 10px 0;
 }
 .event-details{
   height: 400px;
   width: 37%;
-  background: crimson;
+  background: $banana;
 }
 .attractions{
   width: 100%;
@@ -162,13 +177,13 @@
 .food-details{
   height: 400px;
   width: 40%;
-  background: crimson;
+  background: $banana;
 }
 
 .food{
   height: 200px;
   width: 200px;
-  background: crimson;
+  background: $banana;
   margin:0  10px 10px 0;
 }
 .food-details-img{
