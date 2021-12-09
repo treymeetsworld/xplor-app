@@ -11,6 +11,7 @@ const TripForm = (props) => {
     city: '',
     startDate: '',
     endDate: '',
+    url:'',
   })
 
   const [cityUrl, setCityUrl] = useState([])
@@ -79,6 +80,16 @@ const TripForm = (props) => {
         <label htmlFor="endDate" className="label">End Date</label>
         <input
           type="date"
+          autoComplete="off"
+          id="endDate"
+          value={endDate}
+          name="endDate"
+          onChange={handleChange} />
+      </div>
+      <div className="inputContainer">
+        <label htmlFor="url" className="label">Url</label>
+        <input
+          type="url"
           autoComplete="off"
           id="endDate"
           value={endDate}
