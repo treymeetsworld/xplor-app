@@ -97,6 +97,38 @@ function deleteTrip(req, res) {
     })
 }
 
+function deleteRestaurant(req, res) {
+  Trip.findById(req.params.tripId)
+    .then(trip => {
+      const myRestaurants = trip.restaurants
+      const restaurant = `new ObjectId(${ req.params.restaurantId })`
+      myRestaurants.remove(restaurant)
+      trip.save()
+      .then (withoutRestaurant => {
+        console.log(withoutRestaurant)
+
+      })
+
+      // restaurants.remove({ _id: req.params.restaurantId })
+      // trip.save()
+      //   .then(tripWithOutRestaurant => {
+      //     res.json(tripWithOutRestaurant)
+      //   })
+    })
+}
+
+function deleteAttraction(req, res) {
+  Trip.findById(req.params.tripId)
+    .then(trip => {
+      const myAttractions = trip.attractions
+      // attractions.remove({ _id: req.params.attractionId })
+      // trip.save()
+      //   .then(tripWithOutAttraction => {
+      //     res.json(tripWithOutAttraction)
+      //   })
+    })
+}
+
 
 
 export {
@@ -109,4 +141,6 @@ export {
   addFlight,
   deleteHotel,
   deleteFlight,
+  deleteRestaurant,
+  deleteAttraction
 }

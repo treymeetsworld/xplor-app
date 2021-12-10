@@ -5,18 +5,18 @@ const NavBar = ({ user, handleLogout }) => {
 	return (
 		<>
 			{user ? (
-				<nav class="navbar navbar-expand-lg">
-					<div class="container-fluid access">
+				<nav className="navbar navbar-expand-lg">
+					<div className="container-fluid access">
 						<Link className="navbar-brand" to='/'>X'plor</Link>
-						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
+						<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span className="navbar-toggler-icon"></span>
 						</button>
-						<div class="collapse navbar-collapse" id="navbarNav">
-							<ul class="navbar-nav">
-								<li class="nav-item">
+						<div className="collapse navbar-collapse" id="navbarNav">
+							<ul className="navbar-nav">
+								<li className="nav-item">
 									<Link className="navbar-brand" to='' onClick={handleLogout}>Log Out</Link>
 								</li>
-								<li class="nav-item">
+								<li className="nav-item">
 									<Link className="navbar-brand" to='/profile' onClick="">{user.name}'s Profile</Link>
 								</li>
 							</ul>
@@ -24,19 +24,19 @@ const NavBar = ({ user, handleLogout }) => {
 					</div>
 				</nav>
 			) : (
-				<nav class="navbar navbar-expand-lg navbar-light bg-light">
-					<div class="container-fluid access">
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
+					<div className="container-fluid access">
 						<Link className="navbar-brand" to='/'>X'plor</Link>
-						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
+						<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span className="navbar-toggler-icon"></span>
 						</button>
-						<div class="collapse navbar-collapse" id="navbarNav">
-							<ul class="navbar-nav">
-								<li class="nav-item">
-									<Link class="navbar-brand" to="/login" className="access">Log In</Link>
+						<div className="collapse navbar-collapse" id="navbarNav">
+							<ul className="navbar-nav">
+								<li className="nav-item">
+									<Link className="navbar-brand" to="/login" className="access">Log In</Link>
 								</li>
-								<li class="nav-item">
-									<Link class="navbar-brand" to="/signup" className="access">Sign Up</Link>
+								<li className="nav-item">
+									<Link className="navbar-brand" to="/signup" className="access">Sign Up</Link>
 								</li>
 							</ul>
 						</div>

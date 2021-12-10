@@ -27,12 +27,12 @@ const Profile = (props) => {
       <Link className="btn btn-light" to='/addTrip' >Add trip</Link>
       <div className="parent-div">
         {myTrips.map(trip =>
-          <div key={trip._id} class="card child-div col-sm-3" >
-            <div class="card-header">
+          <div key={trip._id} className="card child-div col-sm-3" >
+            <div className="card-header">
               <h3>{trip.city}</h3>
             </div>
             <img className="card-img-top" src="" alt="" />
-            <div class="card-body trip-bottom-card">
+            <div className="card-body trip-bottom-card">
               <Link className="btn btn-light" to='/tripDetails' state={trip}>Trip Details</Link>
               <button className="btn btn-light" onClick={() => props.handleDeleteTrip(trip._id)}>Delete Trip</button>
             </div>

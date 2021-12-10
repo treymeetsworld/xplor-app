@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { searchRestaurant } from "../../services/yelpService"
-// import { addRestaurant } from '../../services/tripService'
+
 
 
 const Restaurants = (props) => {
@@ -73,7 +72,7 @@ const Restaurants = (props) => {
               <>
                 <div className="restaurant-cards parent">
                   {results.map((restaurant, idx) =>
-                    <div className="card child col-sm-3" key={restaurant._id}>
+                    <div className="card child col-sm-2" key={restaurant._id}>
                       <div className="card-header">
                         <img id="restaurant-img" src={restaurant.image_url} className="card-img-top" alt="..." />
                       </div>
