@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { getRandom } from '../../services/unsplashService'
+
 
 
 const TripForm = (props) => {
@@ -14,11 +14,7 @@ const TripForm = (props) => {
     url:{},
   })
 
-const inputRef = useRef(null)
 
-  const [cityUrl, setCityUrl] = useState([])
-
-console.log(cityUrl);
 
   const handleChange = e => {
     setFormData({
@@ -37,19 +33,8 @@ console.log(cityUrl);
     }
   }
 
-  function handleClick() {
-    let city = formData.city
-    getRandom(city)
-    .then(result => {
-    setCityUrl(result)
-  })
-}
 
-function handleUncontrolled(e) {
-  setCityUrl(e.target.value)
-}
-
-  const { city, startDate, endDate, url } = formData
+  const { city, startDate, endDate} = formData
 
   const isFormInvalid = () => {
     return !(city, startDate, endDate)
@@ -73,7 +58,6 @@ function handleUncontrolled(e) {
           name="city"
           onChange={handleChange} />
       </div>
-        <button onClick={handleClick} type="button">city photo</button>
       <div className="inputContainer">
         <label htmlFor="startDate" className="label">Start Date</label>
         <input
@@ -94,16 +78,6 @@ function handleUncontrolled(e) {
           name="endDate"
           onChange={handleChange} />
       </div>
-      <div className="inputContainer">
-        <label htmlFor="url" className="label">Url</label>
-        <input
-          ref={inputRef}
-          id="url"
-          value={cityUrl.urls}
-          name="url"
-          onChange={handleUncontrolled} />
-      </div>
-    <img src={cityUrl.urls && cityUrl.urls.small} alt="" />
       <div className="inputContainer">
         <button disabled={isFormInvalid()} className="button">Add Trip</button>
         <Link to="/profile">

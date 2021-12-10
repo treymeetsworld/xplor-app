@@ -3,7 +3,7 @@ import { Attraction } from '../models/attraction.js'
 import axios from 'axios'
 
 function getAttractions(req,res) {
-  axios.get(`https://api.yelp.com/v3/businesses/search?location=${req.params.query}&term=attractions`,{
+  axios.get(`https://api.yelp.com/v3/businesses/search?location=${req.params.query}&term=attractions&limit=10`,{
     headers: {
       'Authorization': `Bearer ${process.env.API_KEY}`, 'Content-Type': 'application/json'
   },

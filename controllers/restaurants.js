@@ -5,7 +5,7 @@ import axios from 'axios'
 
 function searchRestaurants(req, res) {
   console.log(req.params.query)
-  axios.get(`https://api.yelp.com/v3/businesses/search?location=${req.params.query}&term=restaurants`, {
+  axios.get(`https://api.yelp.com/v3/businesses/search?location=${req.params.query}&term=restaurants&limit=10`, {
     headers: {
       'Authorization': `Bearer ${process.env.API_KEY}`, 'Content-Type': 'application/json'
     },
