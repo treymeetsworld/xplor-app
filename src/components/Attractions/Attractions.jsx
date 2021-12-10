@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { getAttractions } from "../../services/yelpService"
 
 const Attractions = (props) => {
@@ -56,6 +55,7 @@ const Attractions = (props) => {
             onSubmit={handleSubmit}
           >
             <input
+              placeholder="City, State"
               type="text"
               value={query}
               name="query"
@@ -69,9 +69,9 @@ const Attractions = (props) => {
           <div>
             {results.length ?
               <>
-                <div className="restaurant-card">
-                {results.map((attraction, idx) =>
-                  <div className="child card" key={attraction._id}>
+                <div className="attraction-cards parent">
+                {results.map((attraction) =>
+                  <div className="child card col-sm-2" key={attraction._id}>
                     <img id="restaurant-img" src={attraction.image_url} className="card-img-top" alt="..."/>
                     {attraction.name &&
                       <h5 className="card-header">
@@ -79,7 +79,6 @@ const Attractions = (props) => {
                       </h5>
                     }
                     <p>Rating: {attraction.rating}/5</p>
-                    <p>Price: {attraction.price}</p>
                     <p> Contact: {attraction.phone}</p>
                     <button className="btn btn-success" onClick={() => handleAddSubmit(attraction)}>Add to Trip</button>
                   </div>

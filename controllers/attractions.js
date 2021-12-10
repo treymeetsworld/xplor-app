@@ -13,18 +13,21 @@ function getAttractions(req,res) {
 
 function addAttraction(req, res) {
   console.log('req.body', req.body)
-  const rest = new Attraction()
-  rest.name = req.body.name
-  rest.imageUrl = req.body.image_url
-  rest.location = req.body.location
-  rest.price = req.body.price
-  rest.save()
+  const att = new Attraction()
+  att.name = req.body.name
+  att.imageUrl = req.body.image_url
+  att.location = req.body.location
+  att.price = req.body.price
+  att.save()
   Trip.findById(req.params.id)
     .then(trip => {
-      trip.attractions.push(rest)
+      trip.attractions.push(att)
       trip.save()
-        .then(tripWithAttraction => {
-          res.json(tripWithAttraction)
+        .then(updatedTrip => {
+          updatedTrip.populate('attractions')
+          .then(tripWithAttraction => {
+            res.json(tripWithAttraction)
+          })
         })
     })
 }

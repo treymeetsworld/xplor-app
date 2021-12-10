@@ -14,6 +14,7 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   height: 100%;
+  padding-bottom: 30px;
 }
 
 code {
@@ -31,6 +32,8 @@ nav{
         }
   }
 }
+
+
 
 #root{
   display: flex;

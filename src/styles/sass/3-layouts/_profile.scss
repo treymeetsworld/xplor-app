@@ -1,3 +1,30 @@
+
 .child-card .destination{
   flex-direction: column;
+.main-area {
+  text-align: center;
+}
+
+.parent-div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.child-div {
+  align-items: baseline;
+  margin: 15px;
+}
+
+.profile-text {
+  font-size: 4em;
+}
+
+.trip-bottom-card {
+  display: flex;
+  justify-items:  center;
+}
+
+h3 {
+  color: #121925;
 }
