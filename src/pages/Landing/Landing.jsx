@@ -2,6 +2,7 @@ import { searchUnsplash } from '../../services/unsplashService'
 import React, { useState } from 'react'
 import { getAttractions } from '../../services/yelpService'
 import { searchRestaurant } from '../../services/yelpService'
+import { Link } from 'react-router-dom'
 
 const Landing = ({ user }) => {
 
@@ -75,12 +76,11 @@ const Landing = ({ user }) => {
         <div className="flex-top">
           <div className="top-1">
             <h1 className="logo">X'plor</h1>
-            <h3 className="plan">PLAN</h3>
           </div>
           <div className="top-2">
             <div className="splash-landing">
               <img src='#' alt="" />
-              <span>HEROHEROHEROHEROHEROHERO</span>
+              <span>PLAN YOUR NEXT VACATION</span>
               <div className="suggestion">
                 <div className="arrival">Departure <br />
                   <input type="date" />
@@ -212,7 +212,9 @@ const Landing = ({ user }) => {
         </div>
         <div className="final-plan">
           <div className="h3-container">
+            <Link to="/addtrip">
             <h1>Final Plan</h1>
+              </Link>
           </div>
         </div>
       </main >
