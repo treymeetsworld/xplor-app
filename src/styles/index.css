@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Jockey+One&family=Marcellus&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Jockey+One&family=Marcellus&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Jockey+One&family=Marcellus&display=swap");
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -22,10 +25,8 @@ body {
           flex-direction: column;
   overflow-x: hidden;
   height: 100%;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  padding-bottom: 30px;
+  font-family: "Cinzel", serif;
 }
 
 nav {
@@ -44,6 +45,10 @@ nav ul li {
   padding: 5px 0 5px 0;
 }
 
+span {
+  font: "Jockey One", sans-serif;
+}
+
 #root {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,6 +59,10 @@ nav ul li {
           flex-direction: column;
 }
 
+a, link {
+  text-decoration: none;
+}
+
 .bottom-big-div {
   padding-top: 30px;
 }
@@ -61,7 +70,7 @@ nav ul li {
 .xplor-text-div {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .xplor-here {
@@ -69,12 +78,13 @@ nav ul li {
 }
 
 .xplor-city {
-  font-size: 6rem;
-  margin-bottom: 30px;
+  font-size: 5rem;
+  margin-bottom: 15px;
 }
 
 .accordion {
-  width: 98%;
+  margin: auto;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,7 +95,7 @@ nav ul li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   margin-top: 20px;
 }
 
@@ -138,11 +148,6 @@ h5, p {
   left: 5px;
 }
 
-.restaurant-card {
-  width: 25%;
-  height: 25%;
-}
-
 input[type=checkbox]:checked + label.strike-item {
   text-decoration: line-through;
 }
@@ -153,7 +158,7 @@ input[type=checkbox]:checked + label.strike-item {
   top: 2px;
 }
 
-li.list-group-item {
+.list-card-div {
   width: 100%;
 }
 
@@ -163,6 +168,7 @@ li.list-group-item {
 
 .main-div {
   text-align: center;
+  margin-bottom: 25px;
 }
 
 .img-div {
@@ -181,14 +187,18 @@ li.list-group-item {
 }
 
 .details-header {
-  background-color: #f7e2ab;
-  height: 20%;
+  background-color: #80cbd3;
+  height: 20em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.footer {
+  height: 50px;
 }
 
 .container-top {
@@ -218,8 +228,9 @@ li.list-group-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -237,8 +248,8 @@ li.list-group-item {
   margin: 0%;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  font: 6em sans-serif;
-  color: whitesmoke;
+  font: 12em "Jockey One", sans-serif;
+  color: white;
   display: inline-block;
 }
 
@@ -272,7 +283,7 @@ li.list-group-item {
 
 .splash-landing span {
   margin-top: -80%;
-  font-size: 2em;
+  font-size: 3.5em;
   z-index: 1;
 }
 
@@ -569,6 +580,45 @@ li.list-group-item {
           flex-direction: column;
 }
 
+.main-area {
+  text-align: center;
+}
+
+.parent-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.child-div {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin: 15px;
+}
+
+.profile-text {
+  font-size: 4em;
+}
+
+.trip-bottom-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+}
+
+h3 {
+  color: #121925;
+}
+
 .formContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -601,5 +651,51 @@ li.list-group-item {
 
 .navbar-brand {
   color: white;
+}
+
+.child-card .destination {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-area {
+  text-align: center;
+}
+
+.parent-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.child-div {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin: 15px;
+}
+
+.profile-text {
+  font-size: 4em;
+}
+
+.trip-bottom-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+}
+
+h3 {
+  color: #121925;
 }
 /*# sourceMappingURL=index.css.map */

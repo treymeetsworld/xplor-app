@@ -15,12 +15,10 @@ body {
   overflow-x: hidden;
   height: 100%;
   padding-bottom: 30px;
+  font-family: $text;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
 nav{
   width: max-content;
   ul{
@@ -33,9 +31,14 @@ nav{
   }
 }
 
-
+span{
+  font: $head;
+}
 
 #root{
   display: flex;
   flex-direction: column;
+}
+a,link{
+  text-decoration: none;
 }

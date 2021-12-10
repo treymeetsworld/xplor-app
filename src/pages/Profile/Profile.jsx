@@ -59,7 +59,6 @@ const Profile = (props) => {
             <div className="card-header">
               <h3>{trip.city}</h3>
             </div>
-            <img className="card-img-top" src="" alt="" />
             <div className="card-body trip-bottom-card">
               <Link className="btn btn-light" to='/tripDetails' state={trip}>Trip Details</Link>
               <button className="btn btn-light" onClick={() => props.handleDeleteTrip(trip._id)}>Delete Trip</button>
@@ -88,11 +87,11 @@ const Profile = (props) => {
             <>
               <h1>Destination</h1>
               <div className="restaurant-card destination" >
+                <div className="destination-img" >
                 {results.map((photos, idx) =>
-                  <div className="child card destination" key={photos._id}>
-                    <img id="restaurant-img" src={photos.urls.small} className="card-img-top" alt="..." />
-                  </div>
-                )}
+                    <img id=""  key={photos._id} src={photos.urls.regular} className="city-img" alt="..." />
+                    )}
+                    </div>
               </div>
             </>
             :
