@@ -28,11 +28,15 @@ function addRestaurant(req, res) {
   rest.save()
   Trip.findById(req.params.id)
     .then(trip => {
+      console.log("trip", trip)
       trip.restaurants.push(rest)
       trip.save() 
         .then(updatedTrip => {
-          console.log('here!', updatedTrip)
-          res.json(updatedTrip)
+          updatedTrip.populate('restaurants')
+          .then(tripRestaurant => {
+            console.log('pop', tripRestaurant)
+            res.json(tripRestaurant)
+          })
         })
     })
 }

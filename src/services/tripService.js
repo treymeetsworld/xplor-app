@@ -120,6 +120,22 @@ function addAttraction(newAttractionData, trip) {
         .then(res => res.json())
 }
 
+function deleteRestaurant(restaurantId, tripId) {
+    return fetch(`${BASE_URL}/${tripId}/restaurants/${restaurantId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+        .then(res => res.json())
+}
+
+function deleteAttraction(attractionId, tripId) {
+    return fetch(`${BASE_URL}/${tripId}/attractions/${attractionId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+        .then(res => res.json())
+}
+
 export {
 
     getTrips,
@@ -133,6 +149,8 @@ export {
     deleteFlight,
     deleteHotel,
     addRestaurant,
-    addAttraction
+    addAttraction,
+    deleteAttraction,
+    deleteRestaurant
 }
 
