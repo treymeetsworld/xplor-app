@@ -60,7 +60,6 @@ const Unsplash = () => {
             autoComplete="off"
             onSubmit={handleSubmit}
           >
-            <p> search-query</p>
             <input
               type="text"
               value={query}
@@ -98,5 +97,3 @@ const Unsplash = () => {
 }
 
 export default Unsplash;
-
-

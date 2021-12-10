@@ -11,12 +11,8 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: #28394d;
   color: white;
-  margin: 0 0 0 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,6 +54,143 @@ nav ul li {
           flex-direction: column;
 }
 
+.bottom-big-div {
+  padding-top: 30px;
+}
+
+.xplor-text-div {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-bottom: 50px;
+}
+
+.xplor-here {
+  color: #1b2433;
+}
+
+.xplor-city {
+  font-size: 6rem;
+  margin-bottom: 30px;
+}
+
+.accordion {
+  width: 98%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.accordion-item {
+  width: 95%;
+}
+
+.accordion-button {
+  background-color: #a4b7cd;
+}
+
+.accordion-body {
+  background-color: #54677d;
+}
+
+.parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.child {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin: 5px;
+}
+
+h5, p {
+  color: #121925;
+}
+
+.card-header {
+  width: 100%;
+  text-align: center;
+}
+
+.pack-delete {
+  background-color: #c6871e;
+  padding: 0px 2px;
+  font-size: 8px;
+  position: relative;
+  left: 5px;
+}
+
+.restaurant-card {
+  width: 25%;
+  height: 25%;
+}
+
+input[type=checkbox]:checked + label.strike-item {
+  text-decoration: line-through;
+}
+
+.check-left {
+  position: relative;
+  left: -3px;
+  top: 2px;
+}
+
+li.list-group-item {
+  width: 100%;
+}
+
+.card {
+  border-color: #c6871e;
+}
+
+.main-div {
+  text-align: center;
+}
+
+.img-div {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+
+.card-img-top {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.details-header {
+  background-color: #f7e2ab;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .container-top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,6 +201,7 @@ nav ul li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-left: 2em;
 }
 
 .flex-top {
@@ -119,7 +253,7 @@ nav ul li {
   -ms-flex-item-align: end;
       align-self: flex-end;
   width: 100%;
-  height: 500px;
+  height: 700px;
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -213,6 +347,26 @@ nav ul li {
   margin-bottom: 1.5em;
 }
 
+.destination-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.city-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 400px;
+  width: 400px;
+  padding: 5px;
+}
+
 .state {
   height: 300px;
   width: 300px;
@@ -257,17 +411,15 @@ nav ul li {
   margin-top: 40px;
 }
 
-.event {
-  height: 90px;
-  width: 280px;
-  background: #F7E2AB;
-  margin: 0  10px 10px 0;
+.form-mrg {
+  margin-top: 2em;
 }
 
 .event-details {
-  height: 400px;
+  height: 457px;
   width: 37%;
   background: #F7E2AB;
+  margin-right: 125px;
 }
 
 .attractions {
@@ -284,7 +436,7 @@ nav ul li {
 }
 
 .attractions h3 {
-  text-align: center;
+  text-align: left;
   font-size: 3em;
   margin: 0;
 }
@@ -296,6 +448,19 @@ nav ul li {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+.atr-txt {
+  color: white;
+}
+
+.event {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
+  width: 300px;
+  padding: 5px;
+  margin: 10px;
 }
 
 .evt-details-img {
@@ -316,7 +481,7 @@ nav ul li {
 }
 
 .cuisine-container h3 {
-  text-align: center;
+  text-align: left;
   font-size: 3em;
   margin: 0;
 }
@@ -377,7 +542,7 @@ nav ul li {
 }
 
 .final-plan h3 {
-  text-align: center;
+  text-align: left;
   font-size: 3em;
   margin: 0;
 }
@@ -395,6 +560,13 @@ nav ul li {
 
 .hero-wrapper span {
   font-size: 2em;
+}
+
+.child-card .destination {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .formContainer {
@@ -423,77 +595,11 @@ nav ul li {
   margin-bottom: 1rem;
 }
 
-.accordion {
-  width: 98%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.accordion-item {
-  width: 95%;
-}
-
-.accordion-button {
-  background-color: #a4b7cd;
-}
-
-.accordion-body {
-  background-color: #54677d;
-}
-
-.parent {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.child {
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  margin: 8px;
-}
-
-h5, p {
-  color: #121925;
-}
-
-.card-header {
-  width: 100%;
-  text-align: center;
-}
-
-.pack-delete {
-  background-color: #c6871e;
-}
-
-.restaurant-card {
-  width: 25%;
-  height: 25%;
-}
-
-input[type=checkbox]:checked + label.strike-item {
-  text-decoration: line-through;
-}
-
 .access {
-  color: aliceblue;
-  list-style: none;
-  z-index: 100;
+  background-color: #28394d;
+}
+
+.navbar-brand {
+  color: white;
 }
 /*# sourceMappingURL=index.css.map */

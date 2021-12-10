@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { getRandom } from '../../services/unsplashService'
+
 
 
 const TripForm = (props) => {
@@ -11,9 +11,10 @@ const TripForm = (props) => {
     city: '',
     startDate: '',
     endDate: '',
+    url:{},
   })
 
-  const [cityUrl, setCityUrl] = useState([])
+
 
   const handleChange = e => {
     setFormData({
@@ -32,16 +33,8 @@ const TripForm = (props) => {
     }
   }
 
-  function handleClick() {
-    let city = formData.city
-    getRandom(city)
-    .then(result => {
-    setCityUrl(result)
-  })
-}
 
-
-  const { city, startDate, endDate } = formData
+  const { city, startDate, endDate} = formData
 
   const isFormInvalid = () => {
     return !(city, startDate, endDate)
@@ -85,8 +78,6 @@ const TripForm = (props) => {
           name="endDate"
           onChange={handleChange} />
       </div>
-    <button onClick={handleClick} type="button">city photo</button>
-    <img src={cityUrl.urls && cityUrl.urls.small} alt="" />
       <div className="inputContainer">
         <button disabled={isFormInvalid()} className="button">Add Trip</button>
         <Link to="/profile">
