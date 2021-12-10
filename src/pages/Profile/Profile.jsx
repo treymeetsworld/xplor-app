@@ -28,7 +28,7 @@ const Profile = (props) => {
         <ul className="trips">
           {myTrips.map(trip =>
             <li key={trip._id} className="trip">
-              <img src="" alt="" />
+              <img src='' alt="" />
               {trip.city}
               <Link to='/tripDetails' state={trip}>Trip Details</Link>
               <button onClick={() => props.handleDeleteTrip(trip._id)}>Delete Trip</button>
