@@ -1,10 +1,13 @@
 @import './sass/1-abstracts/variables';
 @import './sass/1-abstracts/mixins';
-@import './sass/2-base/global';
-@import './sass//3-layouts/landing-page';
-@import './sass//4-components/form';
-@import './sass/3-layouts/details';
 
+@import './sass/2-base/global';
+
+@import './sass/3-layouts/details';
+@import './sass//3-layouts/landing-page';
+@import './sass/3-layouts/profile';
+
+@import './sass//4-components/form';
 @import './sass/4-components/nav';
 @import './sass/3-layouts/profile';
 

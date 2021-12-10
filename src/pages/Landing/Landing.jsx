@@ -1,30 +1,74 @@
-import { getRandom } from '../../services/unsplashService'
+import { searchUnsplash } from '../../services/unsplashService'
 import React, { useState } from 'react'
-import david from '../../styles/assets/david.jpeg'
+import { getAttractions } from '../../services/yelpService'
+import { searchRestaurant } from '../../services/yelpService'
 
 const Landing = ({ user }) => {
 
-  const [photo, setPhotoResponse] = useState([])
 
-  const [clicked, setClicked] = useState(false)
+  const [formData, setFormData] = useState({
+    query: ''
+  })
+  const [results, setResults] = useState([])
 
+  const [atrResults, setAtrResults] = useState([])
+  const [restResults, setRestResults] = useState([])
 
-  function handleClick() {
-    getRandom()
-      .then(photo => {
-        setPhotoResponse(photo)
-      })
-      .catch(() => {
-        console.log("something went wrong!");
-      })
+  const handleChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
+      searchUnsplash(formData.query)
+        .then(results => {
+          setResults(results.results)
+        })
+        .catch(() => {
+          console.log("something went wrong!");
+        })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
-  function toggleClick() {
-    clicked ? setClicked(false) : setClicked(true)
-    console.log(clicked);
+  const { query } = formData
+  const isFormInvalid = () => {
+    return !(query)
   }
 
+  const handleSubmitAttraction = async e => {
+    e.preventDefault()
+    try {
+      getAttractions(formData.query)
+        .then(results => {
+          setAtrResults(results.businesses)
+        })
+        .catch(() => {
+          console.log("something went wrong!");
+        })
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
+  const handleSubmitRestaurant = async e => {
+    e.preventDefault()
+    try {
+      searchRestaurant(formData.query)
+        .then(results => {
+          setRestResults(results.businesses)
+        })
+        .catch(() => {
+          console.log("something went wrong!");
+        })
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <>
       <main className="container-top">
@@ -35,70 +79,139 @@ const Landing = ({ user }) => {
           </div>
           <div className="top-2">
             <div className="splash-landing">
-              <img src='#'alt="" />
+              <img src='#' alt="" />
               <span>HEROHEROHEROHEROHEROHERO</span>
               <div className="suggestion">
-                <div onClick={toggleClick}
-                  className="destination">Destination
+                <div className="arrival">Departure <br />
+                  <input type="date" />
                 </div>
-                <div className="arrival">Arrival</div>
-                <div className="departure">Departure</div>
-                <div className="expand">Expand</div>
+                <div className="departure">Arrival <br />
+                  <input type="date" />
+                </div>
+                <div className="destination">
+                  Destination<br />
+                  <form
+                    autoComplete="off"
+                    onSubmit={handleSubmit}
+                  >
+                    <input
+                      type="text"
+                      value={query}
+                      name="query"
+                      onChange={handleChange}
+                    />
+                    <button
+                      disabled={isFormInvalid()}
+                    >View Destination
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div><div className="splash-suggestion">
+        </div>
+        <div className="splash-suggestion">
           <div className="h3-container">
             <h3>X'perience Top Destinations</h3>
           </div>
           <div className="choice-container">
-            <div className="state">
-              <h4>state</h4>
-              <div className="svg"></div>
-            </div>
-            <div className="splash-choice"></div>
-            <div className="splash-choice"></div>
-            <div className="splash-choice"></div>
+            {results.length ?
+              <>
+                <div className="destination-img">
+                  {results.map((photos, idx) =>
+                    <img key={photos._id} src={photos.urls.regular} className="city-img" alt="unsplash" />
+                  )}
+                </div>
+              </>
+              :
+              <h4>No results</h4>
+            }
           </div>
         </div>
         <div className="attractions">
           <div className="h3-container">
             <h3>X'citing Attractions</h3>
+            <form
+              autoComplete="off"
+              onSubmit={handleSubmitAttraction}
+              className='form-mrg'
+            >
+              <input
+                type="text"
+                value={query}
+                name="query"
+                onChange={handleChange}
+              />
+              <button
+                disabled={isFormInvalid()}
+              >Get Attraction
+              </button>
+            </form>
           </div>
           <div className="evt-card-container">
-            <div className="event-container">
-              <div className="event"></div>
-              <div className="event"></div>
-              <div className="event"></div>
-              <div className="event"></div>
-              <div className="event"></div>
-              <div className="event"></div>
-            </div>
-            <div className="event-details">
-              <div className="evt-details-img"></div>
+            <div className="destination-img">
+              {atrResults.length ?
+                <>
+                  {atrResults.map((attraction, idx) =>
+                    <div className="atr-box">
+                      <img key={attraction._id} src={attraction.image_url} className="event" alt="..." />
+                      {attraction.name &&
+                        <h5 className="atr-txt">
+                          {attraction.name}
+                        </h5>
+                      }
+                    </div>
+                  )}
+                </>
+                :
+                <h4>Search for a city to get results</h4>
+              }
             </div>
           </div>
         </div>
         <div className="cuisine-container">
           <div className="h3-container">
             <h3>X'cuisite Cuisine</h3>
+            <form
+              autoComplete="off"
+              onSubmit={handleSubmitRestaurant}
+              className='form-mrg'
+            >
+              <input
+                type="text"
+                value={query}
+                name="query"
+                onChange={handleChange}
+              />
+              <button
+                disabled={isFormInvalid()}
+              >Get Attraction
+              </button>
+            </form>
           </div>
-          <div className="food-card-container">
-            <div className="category">
-            </div>
-            <div className="food-choice">
-              <div className="food"></div>
-              <div className="food"></div>
-              <div className="food"></div>
-              <div className="food"></div>
-            </div>
-            <div className="food-details">
-              <div className="food-details-img"></div>
-            </div>
+          <div className="destination-img">
+            {restResults.length ?
+              <>
+                {restResults.map((restaurant, idx) =>
+                  <div className="atr-box">
+                    <img key={restaurant._id} src={restaurant.image_url} className="event" alt="..." />
+                    {restaurant.name &&
+                      <h5 className="atr-txt">
+                        {restaurant.name}
+                      </h5>
+                    }
+                    <p>Rating: {restaurant.rating}/5</p>
+                    <p>Price: {restaurant.price}</p>
+                  </div>
+                )}
+              </>
+              :
+              <h4>Search for a city to get results</h4>
+            }
           </div>
         </div>
         <div className="final-plan">
-        <div className="h3-container">
+          <div className="h3-container">
             <h1>Final Plan</h1>
           </div>
         </div>

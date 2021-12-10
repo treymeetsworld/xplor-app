@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   flex-direction: column;
+  margin-left: 2em;
 }
 .flex-top{
   width: 100%;
@@ -37,7 +38,7 @@
 .splash-landing{
   align-self: flex-end;
   width: 100%;
-  height: 500px;
+  height: 700px;
   left: 0;
   display: flex;
   justify-content: space-between;
@@ -100,8 +101,20 @@
         margin: 0;
       }
 }
+
 .h3-container{
   margin-bottom: 1.5em;
+}
+.destination-img{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.city-img{
+  object-fit: cover;
+  height: 400px;
+  width: 400px;
+  padding: 5px;
 }
 .state{
   height: 300px;
@@ -131,17 +144,15 @@
   flex-wrap: wrap;
   margin-top: 40px;
 }
-
-.event{
-  height: 90px;
-  width: 280px;
-  background: $banana;
-  margin:0  10px 10px 0;
+.form-mrg{
+  margin-top: 2em;
 }
+
 .event-details{
-  height: 400px;
+  height: 457px;
   width: 37%;
   background: $banana;
+  margin-right: 125px;
 }
 .attractions{
   width: 100%;
@@ -150,6 +161,16 @@
 .evt-card-container{
   display: flex;
   justify-content: flex-start;
+}
+.atr-txt{
+  color: white;
+}
+.event{
+  object-fit: cover;
+  height: 200px;
+  width: 300px;
+  padding: 5px;
+  margin: 10px;
 }
 .evt-details-img{
   height: 35%;

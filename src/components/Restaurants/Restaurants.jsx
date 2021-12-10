@@ -104,3 +104,43 @@ export default Restaurants;
 
 
 
+// {
+//   restResults.length ?
+//   <>
+//       {restResults.map((restaurant, idx) =>
+//           <div className='' key={restaurant._id}>
+//             <img id="" src={restaurant.image_url} className="" alt="..." />
+//           </div>
+//           {restaurant.name &&
+//             <h5 className="">
+//               {restaurant.name}
+//             </h5>
+//           }
+//           <p>Rating: {restaurant.rating}/5</p>
+//           <p>Price: {restaurant.price}</p>
+//       )
+// }
+//   </>
+//   :
+// <h4>Search for a city to get results</h4>
+// }
+
+
+// {restResults.length ?
+//   <>
+//     {restResults.map((restaurant, idx) =>
+//       <div className="atr-box">
+//         <img key={restaurant._id} src={restaurant.image_url} className="event" alt="..." />
+//         {restaurant.name &&
+//           <h5 className="atr-txt">
+//             {restaurant.name}
+//           </h5>
+//         }
+//         <p>Rating: {restaurant.rating}/5</p>
+//         <p>Price: {restaurant.price}</p>
+//       </div>
+//     )}
+//   </>
+//   :
+//   <h4>Search for a city to get results</h4>
+// }
