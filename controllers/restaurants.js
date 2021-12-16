@@ -20,25 +20,22 @@ function createRestaurant(req, res) {
 }
 
 function addRestaurant(req, res) {
-  const rest = new Restaurant()
-  rest.name = req.body.name
-  rest.imageUrl = req.body.image_url
-  rest.location = req.body.location
-  rest.price = req.body.price
-  rest.save()
-  Trip.findById(req.params.id)
-    .then(trip => {
-      console.log("trip", trip)
-      trip.restaurants.push(rest)
-      trip.save() 
-        .then(updatedTrip => {
-          updatedTrip.populate('restaurants')
-          .then(tripRestaurant => {
-            console.log('pop', tripRestaurant)
-            res.json(tripRestaurant)
+  Restaurant.create(req.body)
+  .then(rest => {
+    Trip.findById(req.params.id)
+      .then(trip => {
+        console.log("trip", trip)
+        trip.restaurants.push(rest)
+        trip.save() 
+          .then(updatedTrip => {
+            updatedTrip.populate('restaurants')
+            .then(tripRestaurant => {
+              console.log('pop', tripRestaurant)
+              res.json(tripRestaurant)
+            })
           })
-        })
-    })
+      })
+  })
 }
 
 

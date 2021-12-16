@@ -101,13 +101,12 @@ function deleteRestaurant(req, res) {
   Trip.findById(req.params.tripId)
     .then(trip => {
       const myRestaurants = trip.restaurants
-      const restaurant = `new ObjectId(${ req.params.restaurantId })`
-      myRestaurants.remove(restaurant)
-      trip.save()
-      .then (withoutRestaurant => {
-        console.log(withoutRestaurant)
-
+      console.log(myRestaurants)
+      const restIds = myRestaurants.map(rest => {
+        const newRest = rest.split('"')
+        console.log(newRest)
       })
+      console.log(restIds)
 
       // restaurants.remove({ _id: req.params.restaurantId })
       // trip.save()
