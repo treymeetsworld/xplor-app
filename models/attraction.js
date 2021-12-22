@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const attractionSchema = new mongoose.Schema({
     name: String,
-    imageUrl: String,
+    image_url: String,
     description: String,
     // location: String,
 }, {

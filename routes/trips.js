@@ -20,7 +20,7 @@ router.post('/', checkAuth, tripsCtrl.create)
 router.delete('/:tripId/packList/:itemId', checkAuth, tripsCtrl.deletePackingItem)
 router.delete('/:tripId/flights/:flightId', checkAuth, tripsCtrl.deleteFlight)
 router.delete('/:tripId/hotels/:hotelId', checkAuth, tripsCtrl.deleteHotel)
-router.delete('/:tripId/restaurants/:restuarantId', checkAuth, tripsCtrl.deleteRestaurant)
+router.delete('/:tripId/restaurants/:restaurantId', checkAuth, tripsCtrl.deleteRestaurant)
 router.delete('/:tripId/attractions/:attractionId', checkAuth, tripsCtrl.deleteAttraction)
 router.delete('/:id', checkAuth, tripsCtrl.delete)
 

@@ -81,10 +81,10 @@ const Restaurants = (props) => {
                           {restaurant.name}
                         </h5>
                       }
-                      <p>Rating: {restaurant.rating}/5</p>
-                      <p>Price: {restaurant.price}</p>
-                      <p> Contact: {restaurant.phone}</p>
-                      <button className="btn btn-success" onClick={() => handleAddSubmit(restaurant)}>Add to Trip</button>
+                      <p className='deets'>Rating:  {restaurant.rating}/5</p>
+                      <p className='deets'>Price:  {restaurant.price}</p>
+                      <p className='deets'>Contact:  {restaurant.phone}</p>
+                      <button className="btn btn-add" onClick={() => handleAddSubmit(restaurant)}>Add to Trip</button>
                     </div>
                   )}
                 </div>
