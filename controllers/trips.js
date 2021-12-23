@@ -99,33 +99,29 @@ function deleteTrip(req, res) {
 
 function deleteRestaurant(req, res) {
   Trip.findById(req.params.tripId)
+  .populate('restaurants')
+  .populate('attractions')
     .then(trip => {
-      const myRestaurants = trip.restaurants
-      const restaurant = `new ObjectId(${ req.params.restaurantId })`
-      myRestaurants.remove(restaurant)
+      console.log(req.params.restaurantId)
+      console.log("trip before", trip)
+      trip.restaurants.remove({_id: req.params.restaurantId})
       trip.save()
-      .then (withoutRestaurant => {
-        console.log(withoutRestaurant)
-
-      })
-
-      // restaurants.remove({ _id: req.params.restaurantId })
-      // trip.save()
-      //   .then(tripWithOutRestaurant => {
-      //     res.json(tripWithOutRestaurant)
-      //   })
+      console.log("trip after", trip)
+      res.json(trip)
     })
 }
 
 function deleteAttraction(req, res) {
   Trip.findById(req.params.tripId)
+  .populate('restaurants')
+  .populate('attractions')
     .then(trip => {
-      const myAttractions = trip.attractions
-      // attractions.remove({ _id: req.params.attractionId })
-      // trip.save()
-      //   .then(tripWithOutAttraction => {
-      //     res.json(tripWithOutAttraction)
-      //   })
+      console.log(req.params.attractionId)
+      console.log("trip before", trip)
+      trip.attractions.remove({_id: req.params.attractionId})
+      trip.save()
+      console.log("trip after", trip)
+      res.json(trip)
     })
 }
 

@@ -78,9 +78,9 @@ const Attractions = (props) => {
                         {attraction.name}
                       </h5>
                     }
-                    <p>Rating: {attraction.rating}/5</p>
-                    <p> Contact: {attraction.phone}</p>
-                    <button className="btn btn-success" onClick={() => handleAddSubmit(attraction)}>Add to Trip</button>
+                    <p className='deets'>Rating:  {attraction.rating}/5</p>
+                    <p className='deets'> Contact:  {attraction.phone}</p>
+                    <button className="btn btn-add" onClick={() => handleAddSubmit(attraction)}>Add to Trip</button>
                   </div>
                 )}
               </div>

@@ -12,24 +12,20 @@ function getAttractions(req,res) {
 }
 
 function addAttraction(req, res) {
-  console.log('req.body', req.body)
-  const att = new Attraction()
-  att.name = req.body.name
-  att.imageUrl = req.body.image_url
-  att.location = req.body.location
-  att.price = req.body.price
-  att.save()
-  Trip.findById(req.params.id)
-    .then(trip => {
-      trip.attractions.push(att)
-      trip.save()
-        .then(updatedTrip => {
-          updatedTrip.populate('attractions')
-          .then(tripWithAttraction => {
-            res.json(tripWithAttraction)
+  Attraction.create(req.body)
+  .then(att => {
+    Trip.findById(req.params.id)
+      .then(trip => {
+        trip.attractions.push(att)
+        trip.save() 
+          .then(updatedTrip => {
+            updatedTrip.populate('attractions')
+            .then(tripAttraction => {
+              res.json(tripAttraction)
+            })
           })
-        })
-    })
+      })
+  })
 }
 
 export {
