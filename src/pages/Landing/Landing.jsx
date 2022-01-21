@@ -74,20 +74,13 @@ const Landing = ({ user }) => {
     <>
       <main className="container-top">
         <div className="flex-top">
-          <div className="top-1">
-            <h1 className="logo">X'plor</h1>
-          </div>
           <div className="top-2">
+          {/* <div className="top-1"></div> */}
             <div className="splash-landing">
               <img src='#' alt="" />
-              <span>PLAN YOUR NEXT VACATION</span>
+            <span id="logo">X'plor</span>
+              <span id='vacay'>Turn your dream vacation <br />into reality</span>
               <div className="suggestion">
-                <div className="arrival">Departure <br />
-                  <input type="date" />
-                </div>
-                <div className="departure">Arrival <br />
-                  <input type="date" />
-                </div>
                 <div className="destination">
                   Destination<br />
                   <form
@@ -102,7 +95,7 @@ const Landing = ({ user }) => {
                     />
                     <button
                       disabled={isFormInvalid()}
-                    >View Destination
+                    >Search
                     </button>
                   </form>
                 </div>
@@ -212,8 +205,8 @@ const Landing = ({ user }) => {
         </div>
         <div className="final-plan">
           <div className="h3-container">
-            <Link to="/addtrip">
-            <h1>Final Plan</h1>
+            <Link to="/login">
+            <button>Login/Signup</button>
               </Link>
           </div>
         </div>
