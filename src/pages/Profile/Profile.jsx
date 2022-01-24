@@ -58,6 +58,9 @@ const Profile = (props) => {
           <div key={trip._id} className="card child-div col-sm-3" >
             <div className="card-header">
               <h3>{trip.city}</h3>
+              <div className="prof-trip-img-div">
+   <img className="prof-trip-img" src={trip.url} alt="{trip.city}" />
+</div>
             </div>
             <div className="card-body trip-bottom-card">
               <Link className="btn btn-light" to='/tripDetails' state={trip}>Trip Details</Link>
