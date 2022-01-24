@@ -10,6 +10,7 @@ const TripHeader = (props) => {
       <h1 className="xplor-here xplor-city">
         X'plor {location.state.city}!
       </h1>
+      <img className="detail-img" src={location.state.url} alt="{location.state.city}" />
       <h4 className="xplor-here xplor-date" >
         Trip Dates:   {startDateString} - {endDateString}
       </h4>
